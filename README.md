@@ -1,4 +1,4 @@
-## Java client SDKs for NGSI v2
+# Java client SDKs for NGSI v2
 
 ## swagger-codegen
 * OpenAPI 2.0 Spec
@@ -45,4 +45,5 @@
 
 ## Disclaimer
 The SDKs have been automatically generated and may not work as intended out-of-the-box!<br>
+
 <b>Use with caution!<b>
