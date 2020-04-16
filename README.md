@@ -7,8 +7,7 @@
 * Swagger Codegen
   - https://github.com/swagger-api/swagger-codegen#prerequisites<br>
     v2.4.13
-  - https://github.com/swagger-api/swagger-codegen#getting-started
-  
+  - https://github.com/swagger-api/swagger-codegen#getting-started<br>
     ```
     java -jar swagger-codegen-cli.jar generate -i https://raw.githubusercontent.com/FIWARE/specifications/master/OpenAPI/ngsiv2/ngsiv2-openapi.json -l java -o swagger-codegen
     ```
@@ -20,8 +19,7 @@
 * OpenAPI Generator
   - https://github.com/OpenAPITools/openapi-generator#13---download-jar<br>
     v4.3.0
-  - https://github.com/OpenAPITools/openapi-generator#2---getting-started
-  
+  - https://github.com/OpenAPITools/openapi-generator#2---getting-started<br>
     ```
     java -jar openapi-generator-cli.jar generate -i https://raw.githubusercontent.com/FIWARE/specifications/master/OpenAPI/ngsiv2/ngsiv2-openapi.json -g java -o openapi-generator
     ```
@@ -34,8 +32,7 @@
   - https://github.com/OpenAPITools/openapi-generator#13---download-jar<br>
     v4.3.0
   - https://github.com/OpenAPITools/openapi-generator#2---getting-started<br>
-    https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/java.md
-    
+    https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/java.md<br>
     ```
     java -jar openapi-generator-cli.jar generate -i https://raw.githubusercontent.com/FIWARE/specifications/master/OpenAPI/ngsiv2/ngsiv2-openapi.json -g java -o openapi-generator-native --additional-properties library=native
     ```
