@@ -1,4 +1,4 @@
-# Java client SDKs for NGSI v2
+# Auto-generated Java client SDKs for NGSI v2
 
 ## swagger-codegen
 * OpenAPI 2.0 Spec
@@ -8,6 +8,7 @@
   - https://github.com/swagger-api/swagger-codegen#prerequisites<br>
     v2.4.13
   - https://github.com/swagger-api/swagger-codegen#getting-started
+  
     ```
     java -jar swagger-codegen-cli.jar generate -i https://raw.githubusercontent.com/FIWARE/specifications/master/OpenAPI/ngsiv2/ngsiv2-openapi.json -l java -o swagger-codegen
     ```
@@ -20,6 +21,7 @@
   - https://github.com/OpenAPITools/openapi-generator#13---download-jar<br>
     v4.3.0
   - https://github.com/OpenAPITools/openapi-generator#2---getting-started
+  
     ```
     java -jar openapi-generator-cli.jar generate -i https://raw.githubusercontent.com/FIWARE/specifications/master/OpenAPI/ngsiv2/ngsiv2-openapi.json -g java -o openapi-generator
     ```
@@ -33,6 +35,7 @@
     v4.3.0
   - https://github.com/OpenAPITools/openapi-generator#2---getting-started<br>
     https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/java.md
+    
     ```
     java -jar openapi-generator-cli.jar generate -i https://raw.githubusercontent.com/FIWARE/specifications/master/OpenAPI/ngsiv2/ngsiv2-openapi.json -g java -o openapi-generator-native --additional-properties library=native
     ```
