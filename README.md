@@ -1,4 +1,4 @@
-# Auto-generated Java client SDKs for NGSI v2
+# Auto-generated Java Client SDKs for NGSI v2
 
 ## swagger-codegen
 * OpenAPI 2.0 Spec
