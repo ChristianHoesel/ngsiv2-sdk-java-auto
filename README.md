@@ -38,12 +38,10 @@
     ```
 
 ## apimatic-codegen
-* Api Blueprint
+* API Blueprint
   - https://github.com/telefonicaid/fiware-orion/blob/master/doc/apiary/v2/fiware-ngsiv2-2.0-2018_09_15.apib
-* Apimatic Codegen
+* APIMatic CodeGen
   - https://www.apimatic.io/
 
 ## Disclaimer
 The SDKs have been automatically generated and may not work as intended out-of-the-box!<br>
-
-<b>Use with caution!<b>
