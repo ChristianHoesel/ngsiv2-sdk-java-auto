@@ -2,11 +2,12 @@
 
 # UpdateRegistrationRequest
 
+
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**expires** | **String** |  | 
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**expires** | **String** |  |  |
 
 
 

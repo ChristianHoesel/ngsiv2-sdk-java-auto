@@ -15,13 +15,17 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * CreateRegistrationRequest
@@ -31,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateRegistrationRequest.JSON_PROPERTY_DATA_PROVIDED,
   CreateRegistrationRequest.JSON_PROPERTY_PROVIDER
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class CreateRegistrationRequest {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -42,9 +46,10 @@ public class CreateRegistrationRequest {
   public static final String JSON_PROPERTY_PROVIDER = "provider";
   private Object provider;
 
+  public CreateRegistrationRequest() { 
+  }
 
   public CreateRegistrationRequest description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -53,6 +58,7 @@ public class CreateRegistrationRequest {
    * 
    * @return description
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Relative Humidity Context Source", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -62,13 +68,14 @@ public class CreateRegistrationRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public CreateRegistrationRequest dataProvided(Object dataProvided) {
-    
     this.dataProvided = dataProvided;
     return this;
   }
@@ -77,6 +84,7 @@ public class CreateRegistrationRequest {
    * 
    * @return dataProvided
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"entities\":[{\"id\":\"room2\",\"type\":\"Room\"}],\"attrs\":[\"relativeHumidity\"]}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_PROVIDED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -86,13 +94,14 @@ public class CreateRegistrationRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DATA_PROVIDED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDataProvided(Object dataProvided) {
     this.dataProvided = dataProvided;
   }
 
 
   public CreateRegistrationRequest provider(Object provider) {
-    
     this.provider = provider;
     return this;
   }
@@ -101,6 +110,7 @@ public class CreateRegistrationRequest {
    * 
    * @return provider
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"http\":{\"url\":\"http://localhost:1234\"}}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -110,13 +120,18 @@ public class CreateRegistrationRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROVIDER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProvider(Object provider) {
     this.provider = provider;
   }
 
 
+  /**
+   * Return true if this CreateRegistrationRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -134,7 +149,6 @@ public class CreateRegistrationRequest {
     return Objects.hash(description, dataProvided, provider);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -150,7 +164,7 @@ public class CreateRegistrationRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

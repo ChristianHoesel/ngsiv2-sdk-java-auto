@@ -15,13 +15,17 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * ListEntitiesResponse
@@ -32,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ListEntitiesResponse.JSON_PROPERTY_TEMPERATURE,
   ListEntitiesResponse.JSON_PROPERTY_SPEED
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class ListEntitiesResponse {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -46,9 +50,10 @@ public class ListEntitiesResponse {
   public static final String JSON_PROPERTY_SPEED = "speed";
   private Object speed;
 
+  public ListEntitiesResponse() { 
+  }
 
   public ListEntitiesResponse type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -57,6 +62,7 @@ public class ListEntitiesResponse {
    * 
    * @return type
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Room", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -66,13 +72,14 @@ public class ListEntitiesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(String type) {
     this.type = type;
   }
 
 
   public ListEntitiesResponse id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -81,6 +88,7 @@ public class ListEntitiesResponse {
    * 
    * @return id
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "DC_S1-D41", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -90,13 +98,14 @@ public class ListEntitiesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public ListEntitiesResponse temperature(Object temperature) {
-    
     this.temperature = temperature;
     return this;
   }
@@ -115,13 +124,14 @@ public class ListEntitiesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TEMPERATURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTemperature(Object temperature) {
     this.temperature = temperature;
   }
 
 
   public ListEntitiesResponse speed(Object speed) {
-    
     this.speed = speed;
     return this;
   }
@@ -140,13 +150,18 @@ public class ListEntitiesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SPEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSpeed(Object speed) {
     this.speed = speed;
   }
 
 
+  /**
+   * Return true if this ListEntitiesResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -165,7 +180,6 @@ public class ListEntitiesResponse {
     return Objects.hash(type, id, temperature, speed);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -182,7 +196,7 @@ public class ListEntitiesResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

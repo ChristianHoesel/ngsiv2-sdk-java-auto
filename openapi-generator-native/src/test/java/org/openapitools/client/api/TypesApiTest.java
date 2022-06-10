@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 
 /**
  * API tests for TypesApi
@@ -46,8 +48,9 @@ public class TypesApiTest {
         Double limit = null;
         Double offset = null;
         String options = null;
-        List<ListEntityTypesResponse> response = api.listEntityTypes(limit, offset, options);
-
+        List<ListEntityTypesResponse> response = 
+        api.listEntityTypes(limit, offset, options);
+        
         // TODO: test validations
     }
     
@@ -62,8 +65,9 @@ public class TypesApiTest {
     @Test
     public void retrieveEntityTypeTest() throws ApiException {
         String entityType = null;
-        RetrieveEntityTypeResponse response = api.retrieveEntityType(entityType);
-
+        RetrieveEntityTypeResponse response = 
+        api.retrieveEntityType(entityType);
+        
         // TODO: test validations
     }
     

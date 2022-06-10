@@ -15,13 +15,17 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * RetrieveEntityTypeResponse
@@ -30,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RetrieveEntityTypeResponse.JSON_PROPERTY_ATTRS,
   RetrieveEntityTypeResponse.JSON_PROPERTY_COUNT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class RetrieveEntityTypeResponse {
   public static final String JSON_PROPERTY_ATTRS = "attrs";
   private Object attrs;
@@ -38,9 +42,10 @@ public class RetrieveEntityTypeResponse {
   public static final String JSON_PROPERTY_COUNT = "count";
   private Integer count;
 
+  public RetrieveEntityTypeResponse() { 
+  }
 
   public RetrieveEntityTypeResponse attrs(Object attrs) {
-    
     this.attrs = attrs;
     return this;
   }
@@ -49,6 +54,7 @@ public class RetrieveEntityTypeResponse {
    * 
    * @return attrs
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"pressure\":{\"types\":[\"Number\"]},\"humidity\":{\"types\":[\"percentage\"]},\"temperature\":{\"types\":[\"urn:phenomenum:temperature\"]}}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -58,13 +64,14 @@ public class RetrieveEntityTypeResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ATTRS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAttrs(Object attrs) {
     this.attrs = attrs;
   }
 
 
   public RetrieveEntityTypeResponse count(Integer count) {
-    
     this.count = count;
     return this;
   }
@@ -73,6 +80,7 @@ public class RetrieveEntityTypeResponse {
    * 
    * @return count
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "7", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -82,13 +90,18 @@ public class RetrieveEntityTypeResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCount(Integer count) {
     this.count = count;
   }
 
 
+  /**
+   * Return true if this RetrieveEntityTypeResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -105,7 +118,6 @@ public class RetrieveEntityTypeResponse {
     return Objects.hash(attrs, count);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -120,7 +132,7 @@ public class RetrieveEntityTypeResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

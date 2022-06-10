@@ -14,6 +14,7 @@ package org.openapitools.client.api;
 
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.GetAttributeValueResponse;
@@ -29,14 +30,15 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
-import java.util.function.Consumer;
 
 import java.util.ArrayList;
 import java.util.StringJoiner;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.function.Consumer;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class AttributeValueApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -44,7 +46,8 @@ public class AttributeValueApi {
   private final Consumer<HttpRequest.Builder> memberVarInterceptor;
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
-  
+  private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
+
   public AttributeValueApi() {
     this(new ApiClient());
   }
@@ -56,6 +59,20 @@ public class AttributeValueApi {
     memberVarInterceptor = apiClient.getRequestInterceptor();
     memberVarReadTimeout = apiClient.getReadTimeout();
     memberVarResponseInterceptor = apiClient.getResponseInterceptor();
+    memberVarAsyncResponseInterceptor = apiClient.getAsyncResponseInterceptor();
+  }
+
+  protected ApiException getApiException(String operationId, HttpResponse<InputStream> response) throws IOException {
+    String body = response.body() == null ? null : new String(response.body().readAllBytes());
+    String message = formatExceptionMessage(operationId, response.statusCode(), body);
+    return new ApiException(response.statusCode(), message, response.headers(), body);
+  }
+
+  private String formatExceptionMessage(String operationId, int statusCode, String body) {
+    if (body == null || body.isEmpty()) {
+      body = "[no body]";
+    }
+    return operationId + " call failed with: " + statusCode + " - " + body;
   }
 
   /**
@@ -68,6 +85,50 @@ public class AttributeValueApi {
    * @throws ApiException if fails to make API call
    */
   public GetAttributeValueResponse getAttributeValue(String entityId, String attrName, String type) throws ApiException {
+    ApiResponse<GetAttributeValueResponse> localVarResponse = getAttributeValueWithHttpInfo(entityId, attrName, type);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Attribute Value
+   * This operation returns the &#x60;value&#x60; property with the value of the attribute. * If attribute value is JSON Array or Object:   * If &#x60;Accept&#x60; header can be expanded to &#x60;application/json&#x60; or &#x60;text/plain&#x60; return the value as a JSON with a     response type of application/json or text/plain (whichever is the first in &#x60;Accept&#x60; header or     &#x60;application/json&#x60; in case of &#x60;Accept: *_/_*&#x60;).   * Else return a HTTP error \&quot;406 Not Acceptable: accepted MIME types: application/json, text/plain\&quot; * If attribute value is a string, number, null or boolean:   * If &#x60;Accept&#x60; header can be expanded to text/plain return the value as text. In case of a string, citation     marks are used at the begining and end.   * Else return a HTTP error \&quot;406 Not Acceptable: accepted MIME types: text/plain\&quot; Response: * Successful operation uses 200 OK. * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
+   * @param entityId Id of the entity in question (required)
+   * @param attrName Name of the attribute to be retrieved. (required)
+   * @param type Entity type, to avoid ambiguity in case there are several entities with the same entity id. (optional)
+   * @return ApiResponse&lt;GetAttributeValueResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetAttributeValueResponse> getAttributeValueWithHttpInfo(String entityId, String attrName, String type) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getAttributeValueRequestBuilder(entityId, attrName, type);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getAttributeValue", localVarResponse);
+        }
+        return new ApiResponse<GetAttributeValueResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetAttributeValueResponse>() {}) // closes the InputStream
+          
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getAttributeValueRequestBuilder(String entityId, String attrName, String type) throws ApiException {
     // verify the required parameter 'entityId' is set
     if (entityId == null) {
       throw new ApiException(400, "Missing the required parameter 'entityId' when calling getAttributeValue");
@@ -96,35 +157,14 @@ public class AttributeValueApi {
 
     localVarRequestBuilder.header("Accept", "application/json");
 
-    try {
-      localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
-      if (memberVarReadTimeout != null) {
-        localVarRequestBuilder.timeout(memberVarReadTimeout);
-      }
-      if (memberVarInterceptor != null) {
-        memberVarInterceptor.accept(localVarRequestBuilder);
-      }
-
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }          
-      if (localVarResponse.statusCode()/ 100 != 2) {
-        throw new ApiException(localVarResponse.statusCode(),
-            "getAttributeValue call received non-success response",
-            localVarResponse.headers(),
-            localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
-      }
-
-      return memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetAttributeValueResponse>() {});
-    } catch (IOException e) {
-      throw new ApiException(e);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
   }
   /**
    * Update Attribute Value
@@ -137,6 +177,56 @@ public class AttributeValueApi {
    * @throws ApiException if fails to make API call
    */
   public void updateAttributeValue(String entityId, String attrName, String contentType, UpdateAttributeValueRequest body, String type) throws ApiException {
+    updateAttributeValueWithHttpInfo(entityId, attrName, contentType, body, type);
+  }
+
+  /**
+   * Update Attribute Value
+   * The request payload is the new attribute value. * If the request payload MIME type is &#x60;application/json&#x60;, then the value of the attribute is set to   the JSON object or array coded in the payload (if the payload is not a valid JSON document,   then an error is returned). * If the request payload MIME type is &#x60;text/plain&#x60;, then the following algorithm is applied to the   payload:   * If the payload starts and ends with citation-marks (&#x60;\&quot;&#x60;), the value is taken as a string     (the citation marks themselves are not considered part of the string)   * If &#x60;true&#x60; or &#x60;false&#x60;, the value is taken as a boolean.   * If &#x60;null&#x60;, the value is taken as null.   * If these first three tests &#39;fail&#39;, the text is interpreted as a number.   * If not a valid number, then an error is returned and the attribute&#39;s value is unchanged. The payload MIME type in the request is specified in the &#x60;Content-Type&#x60; HTTP header. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
+   * @param entityId Id of the entity to be updated. (required)
+   * @param attrName Attribute name. (required)
+   * @param contentType  (required)
+   * @param body  (required)
+   * @param type Entity type, to avoid ambiguity in case there are several entities with the same entity id. (optional)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> updateAttributeValueWithHttpInfo(String entityId, String attrName, String contentType, UpdateAttributeValueRequest body, String type) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateAttributeValueRequestBuilder(entityId, attrName, contentType, body, type);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateAttributeValue", localVarResponse);
+        }
+        return new ApiResponse<Void>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          
+          null
+        );
+      } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateAttributeValueRequestBuilder(String entityId, String attrName, String contentType, UpdateAttributeValueRequest body, String type) throws ApiException {
     // verify the required parameter 'entityId' is set
     if (entityId == null) {
       throw new ApiException(400, "Missing the required parameter 'entityId' when calling updateAttributeValue");
@@ -180,31 +270,15 @@ public class AttributeValueApi {
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
       localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
-      if (memberVarReadTimeout != null) {
-        localVarRequestBuilder.timeout(memberVarReadTimeout);
-      }
-      if (memberVarInterceptor != null) {
-        memberVarInterceptor.accept(localVarRequestBuilder);
-      }
-
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }          
-      if (localVarResponse.statusCode()/ 100 != 2) {
-        throw new ApiException(localVarResponse.statusCode(),
-            "updateAttributeValue call received non-success response",
-            localVarResponse.headers(),
-            localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
-      }
-
     } catch (IOException e) {
       throw new ApiException(e);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
     }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
   }
 }

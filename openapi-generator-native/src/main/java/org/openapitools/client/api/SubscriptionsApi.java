@@ -14,6 +14,7 @@ package org.openapitools.client.api;
 
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.CreateSubscriptionRequest;
@@ -30,14 +31,15 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
-import java.util.function.Consumer;
 
 import java.util.ArrayList;
 import java.util.StringJoiner;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.function.Consumer;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class SubscriptionsApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -45,7 +47,8 @@ public class SubscriptionsApi {
   private final Consumer<HttpRequest.Builder> memberVarInterceptor;
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
-  
+  private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
+
   public SubscriptionsApi() {
     this(new ApiClient());
   }
@@ -57,6 +60,20 @@ public class SubscriptionsApi {
     memberVarInterceptor = apiClient.getRequestInterceptor();
     memberVarReadTimeout = apiClient.getReadTimeout();
     memberVarResponseInterceptor = apiClient.getResponseInterceptor();
+    memberVarAsyncResponseInterceptor = apiClient.getAsyncResponseInterceptor();
+  }
+
+  protected ApiException getApiException(String operationId, HttpResponse<InputStream> response) throws IOException {
+    String body = response.body() == null ? null : new String(response.body().readAllBytes());
+    String message = formatExceptionMessage(operationId, response.statusCode(), body);
+    return new ApiException(response.statusCode(), message, response.headers(), body);
+  }
+
+  private String formatExceptionMessage(String operationId, int statusCode, String body) {
+    if (body == null || body.isEmpty()) {
+      body = "[no body]";
+    }
+    return operationId + " call failed with: " + statusCode + " - " + body;
   }
 
   /**
@@ -67,6 +84,53 @@ public class SubscriptionsApi {
    * @throws ApiException if fails to make API call
    */
   public void createSubscription(String contentType, CreateSubscriptionRequest body) throws ApiException {
+    createSubscriptionWithHttpInfo(contentType, body);
+  }
+
+  /**
+   * Create Subscription
+   * Creates a new subscription. The subscription is represented by a JSON object as described at the beginning of this section. Response: * Successful operation uses 201 Created * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
+   * @param contentType  (required)
+   * @param body  (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> createSubscriptionWithHttpInfo(String contentType, CreateSubscriptionRequest body) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createSubscriptionRequestBuilder(contentType, body);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createSubscription", localVarResponse);
+        }
+        return new ApiResponse<Void>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          
+          null
+        );
+      } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createSubscriptionRequestBuilder(String contentType, CreateSubscriptionRequest body) throws ApiException {
     // verify the required parameter 'contentType' is set
     if (contentType == null) {
       throw new ApiException(400, "Missing the required parameter 'contentType' when calling createSubscription");
@@ -91,32 +155,16 @@ public class SubscriptionsApi {
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
-      if (memberVarReadTimeout != null) {
-        localVarRequestBuilder.timeout(memberVarReadTimeout);
-      }
-      if (memberVarInterceptor != null) {
-        memberVarInterceptor.accept(localVarRequestBuilder);
-      }
-
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }          
-      if (localVarResponse.statusCode()/ 100 != 2) {
-        throw new ApiException(localVarResponse.statusCode(),
-            "createSubscription call received non-success response",
-            localVarResponse.headers(),
-            localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
-      }
-
     } catch (IOException e) {
       throw new ApiException(e);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
     }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
   }
   /**
    * Delete subscription
@@ -125,6 +173,52 @@ public class SubscriptionsApi {
    * @throws ApiException if fails to make API call
    */
   public void deleteSubscription(String subscriptionId) throws ApiException {
+    deleteSubscriptionWithHttpInfo(subscriptionId);
+  }
+
+  /**
+   * Delete subscription
+   * Cancels subscription. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
+   * @param subscriptionId subscription Id. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> deleteSubscriptionWithHttpInfo(String subscriptionId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteSubscriptionRequestBuilder(subscriptionId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteSubscription", localVarResponse);
+        }
+        return new ApiResponse<Void>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          
+          null
+        );
+      } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteSubscriptionRequestBuilder(String subscriptionId) throws ApiException {
     // verify the required parameter 'subscriptionId' is set
     if (subscriptionId == null) {
       throw new ApiException(400, "Missing the required parameter 'subscriptionId' when calling deleteSubscription");
@@ -139,34 +233,14 @@ public class SubscriptionsApi {
 
     localVarRequestBuilder.header("Accept", "application/json");
 
-    try {
-      localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
-      if (memberVarReadTimeout != null) {
-        localVarRequestBuilder.timeout(memberVarReadTimeout);
-      }
-      if (memberVarInterceptor != null) {
-        memberVarInterceptor.accept(localVarRequestBuilder);
-      }
-
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }          
-      if (localVarResponse.statusCode()/ 100 != 2) {
-        throw new ApiException(localVarResponse.statusCode(),
-            "deleteSubscription call received non-success response",
-            localVarResponse.headers(),
-            localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
-      }
-
-    } catch (IOException e) {
-      throw new ApiException(e);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
   }
   /**
    * List Subscriptions
@@ -178,6 +252,50 @@ public class SubscriptionsApi {
    * @throws ApiException if fails to make API call
    */
   public List<ListSubscriptionsResponse> listSubscriptions(Double limit, Double offset, String options) throws ApiException {
+    ApiResponse<List<ListSubscriptionsResponse>> localVarResponse = listSubscriptionsWithHttpInfo(limit, offset, options);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List Subscriptions
+   * Returns a list of all the subscriptions present in the system. Response: * Successful operation uses 200 OK * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
+   * @param limit Limit the number of subscriptions to be retrieved (optional)
+   * @param offset Skip a number of subscriptions (optional)
+   * @param options Options dictionary (optional)
+   * @return ApiResponse&lt;List&lt;ListSubscriptionsResponse&gt;&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<List<ListSubscriptionsResponse>> listSubscriptionsWithHttpInfo(Double limit, Double offset, String options) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listSubscriptionsRequestBuilder(limit, offset, options);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listSubscriptions", localVarResponse);
+        }
+        return new ApiResponse<List<ListSubscriptionsResponse>>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<List<ListSubscriptionsResponse>>() {}) // closes the InputStream
+          
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listSubscriptionsRequestBuilder(Double limit, Double offset, String options) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -198,35 +316,14 @@ public class SubscriptionsApi {
 
     localVarRequestBuilder.header("Accept", "application/json");
 
-    try {
-      localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
-      if (memberVarReadTimeout != null) {
-        localVarRequestBuilder.timeout(memberVarReadTimeout);
-      }
-      if (memberVarInterceptor != null) {
-        memberVarInterceptor.accept(localVarRequestBuilder);
-      }
-
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }          
-      if (localVarResponse.statusCode()/ 100 != 2) {
-        throw new ApiException(localVarResponse.statusCode(),
-            "listSubscriptions call received non-success response",
-            localVarResponse.headers(),
-            localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
-      }
-
-      return memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<List<ListSubscriptionsResponse>>() {});
-    } catch (IOException e) {
-      throw new ApiException(e);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
   }
   /**
    * Retrieve Subscription
@@ -236,6 +333,48 @@ public class SubscriptionsApi {
    * @throws ApiException if fails to make API call
    */
   public Object retrieveSubscription(String subscriptionId) throws ApiException {
+    ApiResponse<Object> localVarResponse = retrieveSubscriptionWithHttpInfo(subscriptionId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Retrieve Subscription
+   * The response is the subscription represented by a JSON object as described at the beginning of this section. Response: * Successful operation uses 200 OK * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
+   * @param subscriptionId subscription Id. (required)
+   * @return ApiResponse&lt;Object&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Object> retrieveSubscriptionWithHttpInfo(String subscriptionId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = retrieveSubscriptionRequestBuilder(subscriptionId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("retrieveSubscription", localVarResponse);
+        }
+        return new ApiResponse<Object>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Object>() {}) // closes the InputStream
+          
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder retrieveSubscriptionRequestBuilder(String subscriptionId) throws ApiException {
     // verify the required parameter 'subscriptionId' is set
     if (subscriptionId == null) {
       throw new ApiException(400, "Missing the required parameter 'subscriptionId' when calling retrieveSubscription");
@@ -250,35 +389,14 @@ public class SubscriptionsApi {
 
     localVarRequestBuilder.header("Accept", "application/json");
 
-    try {
-      localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
-      if (memberVarReadTimeout != null) {
-        localVarRequestBuilder.timeout(memberVarReadTimeout);
-      }
-      if (memberVarInterceptor != null) {
-        memberVarInterceptor.accept(localVarRequestBuilder);
-      }
-
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }          
-      if (localVarResponse.statusCode()/ 100 != 2) {
-        throw new ApiException(localVarResponse.statusCode(),
-            "retrieveSubscription call received non-success response",
-            localVarResponse.headers(),
-            localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
-      }
-
-      return memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Object>() {});
-    } catch (IOException e) {
-      throw new ApiException(e);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
   }
   /**
    * Update Subscription
@@ -289,6 +407,54 @@ public class SubscriptionsApi {
    * @throws ApiException if fails to make API call
    */
   public void updateSubscription(String subscriptionId, String contentType, UpdateSubscriptionRequest body) throws ApiException {
+    updateSubscriptionWithHttpInfo(subscriptionId, contentType, body);
+  }
+
+  /**
+   * Update Subscription
+   * Only the fields included in the request are updated in the subscription. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
+   * @param subscriptionId subscription Id. (required)
+   * @param contentType  (required)
+   * @param body  (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> updateSubscriptionWithHttpInfo(String subscriptionId, String contentType, UpdateSubscriptionRequest body) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateSubscriptionRequestBuilder(subscriptionId, contentType, body);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateSubscription", localVarResponse);
+        }
+        return new ApiResponse<Void>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          
+          null
+        );
+      } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateSubscriptionRequestBuilder(String subscriptionId, String contentType, UpdateSubscriptionRequest body) throws ApiException {
     // verify the required parameter 'subscriptionId' is set
     if (subscriptionId == null) {
       throw new ApiException(400, "Missing the required parameter 'subscriptionId' when calling updateSubscription");
@@ -318,31 +484,15 @@ public class SubscriptionsApi {
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
       localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
-      if (memberVarReadTimeout != null) {
-        localVarRequestBuilder.timeout(memberVarReadTimeout);
-      }
-      if (memberVarInterceptor != null) {
-        memberVarInterceptor.accept(localVarRequestBuilder);
-      }
-
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }          
-      if (localVarResponse.statusCode()/ 100 != 2) {
-        throw new ApiException(localVarResponse.statusCode(),
-            "updateSubscription call received non-success response",
-            localVarResponse.headers(),
-            localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
-      }
-
     } catch (IOException e) {
       throw new ApiException(e);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
     }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
   }
 }

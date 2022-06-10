@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 
 /**
  * API tests for BatchOperationsApi
@@ -48,8 +50,9 @@ public class BatchOperationsApiTest {
         String contentType = null;
         NotifyRequest body = null;
         String options = null;
+        
         api.notify(contentType, body, options);
-
+        
         // TODO: test validations
     }
     
@@ -69,8 +72,9 @@ public class BatchOperationsApiTest {
         Double offset = null;
         String orderBy = null;
         String options = null;
-        List<QueryResponse> response = api.query(contentType, body, limit, offset, orderBy, options);
-
+        List<QueryResponse> response = 
+        api.query(contentType, body, limit, offset, orderBy, options);
+        
         // TODO: test validations
     }
     
@@ -87,8 +91,9 @@ public class BatchOperationsApiTest {
         String contentType = null;
         UpdateRequest body = null;
         String options = null;
+        
         api.update(contentType, body, options);
-
+        
         // TODO: test validations
     }
     

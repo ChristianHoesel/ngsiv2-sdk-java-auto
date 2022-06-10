@@ -4,7 +4,7 @@ FIWARE-NGSI v2 Specification
 
 - API version: 1.0
 
-- Build date: 2020-04-15T18:35:25.798686+03:00[Europe/Athens]
+- Build date: 2022-06-11T00:46:31.524327+03:00[Europe/Athens]
 
 TODO: Add a description
 
@@ -107,34 +107,63 @@ All URIs are relative to *http://orion.lab.fiware.org*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ApiEntryPointApi* | [**retrieveAPIResources**](docs/ApiEntryPointApi.md#retrieveAPIResources) | **GET** /v2 | Retrieve API Resources
+*ApiEntryPointApi* | [**retrieveAPIResourcesWithHttpInfo**](docs/ApiEntryPointApi.md#retrieveAPIResourcesWithHttpInfo) | **GET** /v2 | Retrieve API Resources
 *AttributeValueApi* | [**getAttributeValue**](docs/AttributeValueApi.md#getAttributeValue) | **GET** /v2/entities/{entityId}/attrs/{attrName}/value | Get Attribute Value
+*AttributeValueApi* | [**getAttributeValueWithHttpInfo**](docs/AttributeValueApi.md#getAttributeValueWithHttpInfo) | **GET** /v2/entities/{entityId}/attrs/{attrName}/value | Get Attribute Value
 *AttributeValueApi* | [**updateAttributeValue**](docs/AttributeValueApi.md#updateAttributeValue) | **PUT** /v2/entities/{entityId}/attrs/{attrName}/value | Update Attribute Value
+*AttributeValueApi* | [**updateAttributeValueWithHttpInfo**](docs/AttributeValueApi.md#updateAttributeValueWithHttpInfo) | **PUT** /v2/entities/{entityId}/attrs/{attrName}/value | Update Attribute Value
 *AttributesApi* | [**getAttributeData**](docs/AttributesApi.md#getAttributeData) | **GET** /v2/entities/{entityId}/attrs/{attrName} | Get attribute data
+*AttributesApi* | [**getAttributeDataWithHttpInfo**](docs/AttributesApi.md#getAttributeDataWithHttpInfo) | **GET** /v2/entities/{entityId}/attrs/{attrName} | Get attribute data
 *AttributesApi* | [**removeASingleAttribute**](docs/AttributesApi.md#removeASingleAttribute) | **DELETE** /v2/entities/{entityId}/attrs/{attrName} | Remove a Single Attribute
+*AttributesApi* | [**removeASingleAttributeWithHttpInfo**](docs/AttributesApi.md#removeASingleAttributeWithHttpInfo) | **DELETE** /v2/entities/{entityId}/attrs/{attrName} | Remove a Single Attribute
 *AttributesApi* | [**updateAttributeData**](docs/AttributesApi.md#updateAttributeData) | **PUT** /v2/entities/{entityId}/attrs/{attrName} | Update Attribute Data
+*AttributesApi* | [**updateAttributeDataWithHttpInfo**](docs/AttributesApi.md#updateAttributeDataWithHttpInfo) | **PUT** /v2/entities/{entityId}/attrs/{attrName} | Update Attribute Data
 *BatchOperationsApi* | [**notify**](docs/BatchOperationsApi.md#notify) | **POST** /v2/op/notify | Notify
+*BatchOperationsApi* | [**notifyWithHttpInfo**](docs/BatchOperationsApi.md#notifyWithHttpInfo) | **POST** /v2/op/notify | Notify
 *BatchOperationsApi* | [**query**](docs/BatchOperationsApi.md#query) | **POST** /v2/op/query | Query
+*BatchOperationsApi* | [**queryWithHttpInfo**](docs/BatchOperationsApi.md#queryWithHttpInfo) | **POST** /v2/op/query | Query
 *BatchOperationsApi* | [**update**](docs/BatchOperationsApi.md#update) | **POST** /v2/op/update | Update
+*BatchOperationsApi* | [**updateWithHttpInfo**](docs/BatchOperationsApi.md#updateWithHttpInfo) | **POST** /v2/op/update | Update
 *EntitiesApi* | [**createEntity**](docs/EntitiesApi.md#createEntity) | **POST** /v2/entities | Create Entity
+*EntitiesApi* | [**createEntityWithHttpInfo**](docs/EntitiesApi.md#createEntityWithHttpInfo) | **POST** /v2/entities | Create Entity
 *EntitiesApi* | [**listEntities**](docs/EntitiesApi.md#listEntities) | **GET** /v2/entities | List Entities
+*EntitiesApi* | [**listEntitiesWithHttpInfo**](docs/EntitiesApi.md#listEntitiesWithHttpInfo) | **GET** /v2/entities | List Entities
 *EntitiesApi* | [**removeEntity**](docs/EntitiesApi.md#removeEntity) | **DELETE** /v2/entities/{entityId} | Remove Entity
+*EntitiesApi* | [**removeEntityWithHttpInfo**](docs/EntitiesApi.md#removeEntityWithHttpInfo) | **DELETE** /v2/entities/{entityId} | Remove Entity
 *EntitiesApi* | [**replaceAllEntityAttributes**](docs/EntitiesApi.md#replaceAllEntityAttributes) | **PUT** /v2/entities/{entityId}/attrs | Replace all entity attributes
+*EntitiesApi* | [**replaceAllEntityAttributesWithHttpInfo**](docs/EntitiesApi.md#replaceAllEntityAttributesWithHttpInfo) | **PUT** /v2/entities/{entityId}/attrs | Replace all entity attributes
 *EntitiesApi* | [**retrieveEntity**](docs/EntitiesApi.md#retrieveEntity) | **GET** /v2/entities/{entityId} | Retrieve Entity
+*EntitiesApi* | [**retrieveEntityWithHttpInfo**](docs/EntitiesApi.md#retrieveEntityWithHttpInfo) | **GET** /v2/entities/{entityId} | Retrieve Entity
 *EntitiesApi* | [**retrieveEntityAttributes**](docs/EntitiesApi.md#retrieveEntityAttributes) | **GET** /v2/entities/{entityId}/attrs | Retrieve Entity Attributes
+*EntitiesApi* | [**retrieveEntityAttributesWithHttpInfo**](docs/EntitiesApi.md#retrieveEntityAttributesWithHttpInfo) | **GET** /v2/entities/{entityId}/attrs | Retrieve Entity Attributes
 *EntitiesApi* | [**updateExistingEntityAttributes**](docs/EntitiesApi.md#updateExistingEntityAttributes) | **PATCH** /v2/entities/{entityId}/attrs | Update Existing Entity Attributes
+*EntitiesApi* | [**updateExistingEntityAttributesWithHttpInfo**](docs/EntitiesApi.md#updateExistingEntityAttributesWithHttpInfo) | **PATCH** /v2/entities/{entityId}/attrs | Update Existing Entity Attributes
 *EntitiesApi* | [**updateOrAppendEntityAttributes**](docs/EntitiesApi.md#updateOrAppendEntityAttributes) | **POST** /v2/entities/{entityId}/attrs | Update or Append Entity Attributes
+*EntitiesApi* | [**updateOrAppendEntityAttributesWithHttpInfo**](docs/EntitiesApi.md#updateOrAppendEntityAttributesWithHttpInfo) | **POST** /v2/entities/{entityId}/attrs | Update or Append Entity Attributes
 *RegistrationsApi* | [**createRegistration**](docs/RegistrationsApi.md#createRegistration) | **POST** /v2/registrations | Create Registration
+*RegistrationsApi* | [**createRegistrationWithHttpInfo**](docs/RegistrationsApi.md#createRegistrationWithHttpInfo) | **POST** /v2/registrations | Create Registration
 *RegistrationsApi* | [**deleteRegistration**](docs/RegistrationsApi.md#deleteRegistration) | **DELETE** /v2/registrations/{registrationId} | Delete Registration
+*RegistrationsApi* | [**deleteRegistrationWithHttpInfo**](docs/RegistrationsApi.md#deleteRegistrationWithHttpInfo) | **DELETE** /v2/registrations/{registrationId} | Delete Registration
 *RegistrationsApi* | [**listRegistrations**](docs/RegistrationsApi.md#listRegistrations) | **GET** /v2/registrations | List Registrations
+*RegistrationsApi* | [**listRegistrationsWithHttpInfo**](docs/RegistrationsApi.md#listRegistrationsWithHttpInfo) | **GET** /v2/registrations | List Registrations
 *RegistrationsApi* | [**retrieveRegistration**](docs/RegistrationsApi.md#retrieveRegistration) | **GET** /v2/registrations/{registrationId} | Retrieve Registration
+*RegistrationsApi* | [**retrieveRegistrationWithHttpInfo**](docs/RegistrationsApi.md#retrieveRegistrationWithHttpInfo) | **GET** /v2/registrations/{registrationId} | Retrieve Registration
 *RegistrationsApi* | [**updateRegistration**](docs/RegistrationsApi.md#updateRegistration) | **PATCH** /v2/registrations/{registrationId} | Update Registration
+*RegistrationsApi* | [**updateRegistrationWithHttpInfo**](docs/RegistrationsApi.md#updateRegistrationWithHttpInfo) | **PATCH** /v2/registrations/{registrationId} | Update Registration
 *SubscriptionsApi* | [**createSubscription**](docs/SubscriptionsApi.md#createSubscription) | **POST** /v2/subscriptions | Create Subscription
+*SubscriptionsApi* | [**createSubscriptionWithHttpInfo**](docs/SubscriptionsApi.md#createSubscriptionWithHttpInfo) | **POST** /v2/subscriptions | Create Subscription
 *SubscriptionsApi* | [**deleteSubscription**](docs/SubscriptionsApi.md#deleteSubscription) | **DELETE** /v2/subscriptions/{subscriptionId} | Delete subscription
+*SubscriptionsApi* | [**deleteSubscriptionWithHttpInfo**](docs/SubscriptionsApi.md#deleteSubscriptionWithHttpInfo) | **DELETE** /v2/subscriptions/{subscriptionId} | Delete subscription
 *SubscriptionsApi* | [**listSubscriptions**](docs/SubscriptionsApi.md#listSubscriptions) | **GET** /v2/subscriptions | List Subscriptions
+*SubscriptionsApi* | [**listSubscriptionsWithHttpInfo**](docs/SubscriptionsApi.md#listSubscriptionsWithHttpInfo) | **GET** /v2/subscriptions | List Subscriptions
 *SubscriptionsApi* | [**retrieveSubscription**](docs/SubscriptionsApi.md#retrieveSubscription) | **GET** /v2/subscriptions/{subscriptionId} | Retrieve Subscription
+*SubscriptionsApi* | [**retrieveSubscriptionWithHttpInfo**](docs/SubscriptionsApi.md#retrieveSubscriptionWithHttpInfo) | **GET** /v2/subscriptions/{subscriptionId} | Retrieve Subscription
 *SubscriptionsApi* | [**updateSubscription**](docs/SubscriptionsApi.md#updateSubscription) | **PATCH** /v2/subscriptions/{subscriptionId} | Update Subscription
+*SubscriptionsApi* | [**updateSubscriptionWithHttpInfo**](docs/SubscriptionsApi.md#updateSubscriptionWithHttpInfo) | **PATCH** /v2/subscriptions/{subscriptionId} | Update Subscription
 *TypesApi* | [**listEntityTypes**](docs/TypesApi.md#listEntityTypes) | **GET** /v2/types/ | List Entity Types
+*TypesApi* | [**listEntityTypesWithHttpInfo**](docs/TypesApi.md#listEntityTypesWithHttpInfo) | **GET** /v2/types/ | List Entity Types
 *TypesApi* | [**retrieveEntityType**](docs/TypesApi.md#retrieveEntityType) | **GET** /v2/types/{entityType} | Retrieve entity type
+*TypesApi* | [**retrieveEntityTypeWithHttpInfo**](docs/TypesApi.md#retrieveEntityTypeWithHttpInfo) | **GET** /v2/types/{entityType} | Retrieve entity type
 
 
 ## Documentation for Models

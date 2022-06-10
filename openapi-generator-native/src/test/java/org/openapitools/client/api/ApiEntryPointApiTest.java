@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 
 /**
  * API tests for ApiEntryPointApi
@@ -42,8 +44,9 @@ public class ApiEntryPointApiTest {
      */
     @Test
     public void retrieveAPIResourcesTest() throws ApiException {
-        RetrieveApiResourcesResponse response = api.retrieveAPIResources();
-
+        RetrieveApiResourcesResponse response = 
+        api.retrieveAPIResources();
+        
         // TODO: test validations
     }
     

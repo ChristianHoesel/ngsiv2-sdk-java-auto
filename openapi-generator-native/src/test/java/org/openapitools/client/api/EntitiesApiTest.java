@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 
 /**
  * API tests for EntitiesApi
@@ -51,8 +53,9 @@ public class EntitiesApiTest {
         String contentType = null;
         CreateEntityRequest body = null;
         String options = null;
+        
         api.createEntity(contentType, body, options);
-
+        
         // TODO: test validations
     }
     
@@ -81,8 +84,9 @@ public class EntitiesApiTest {
         String metadata = null;
         String orderBy = null;
         String options = null;
-        List<ListEntitiesResponse> response = api.listEntities(id, type, idPattern, typePattern, q, mq, georel, geometry, coords, limit, offset, attrs, metadata, orderBy, options);
-
+        List<ListEntitiesResponse> response = 
+        api.listEntities(id, type, idPattern, typePattern, q, mq, georel, geometry, coords, limit, offset, attrs, metadata, orderBy, options);
+        
         // TODO: test validations
     }
     
@@ -98,8 +102,9 @@ public class EntitiesApiTest {
     public void removeEntityTest() throws ApiException {
         String entityId = null;
         String type = null;
+        
         api.removeEntity(entityId, type);
-
+        
         // TODO: test validations
     }
     
@@ -118,8 +123,9 @@ public class EntitiesApiTest {
         ReplaceAllEntityAttributesRequest body = null;
         String type = null;
         String options = null;
+        
         api.replaceAllEntityAttributes(entityId, contentType, body, type, options);
-
+        
         // TODO: test validations
     }
     
@@ -138,8 +144,9 @@ public class EntitiesApiTest {
         String attrs = null;
         String metadata = null;
         String options = null;
-        RetrieveEntityResponse response = api.retrieveEntity(entityId, type, attrs, metadata, options);
-
+        RetrieveEntityResponse response = 
+        api.retrieveEntity(entityId, type, attrs, metadata, options);
+        
         // TODO: test validations
     }
     
@@ -158,8 +165,9 @@ public class EntitiesApiTest {
         String attrs = null;
         String metadata = null;
         String options = null;
-        RetrieveEntityAttributesResponse response = api.retrieveEntityAttributes(entityId, type, attrs, metadata, options);
-
+        RetrieveEntityAttributesResponse response = 
+        api.retrieveEntityAttributes(entityId, type, attrs, metadata, options);
+        
         // TODO: test validations
     }
     
@@ -178,8 +186,9 @@ public class EntitiesApiTest {
         UpdateExistingEntityAttributesRequest body = null;
         String type = null;
         String options = null;
+        
         api.updateExistingEntityAttributes(entityId, contentType, body, type, options);
-
+        
         // TODO: test validations
     }
     
@@ -198,8 +207,9 @@ public class EntitiesApiTest {
         UpdateOrAppendEntityAttributesRequest body = null;
         String type = null;
         String options = null;
+        
         api.updateOrAppendEntityAttributes(entityId, contentType, body, type, options);
-
+        
         // TODO: test validations
     }
     

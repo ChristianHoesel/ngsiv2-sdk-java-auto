@@ -15,13 +15,17 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * UpdateAttributeValueRequest
@@ -32,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateAttributeValueRequest.JSON_PROPERTY_CITY,
   UpdateAttributeValueRequest.JSON_PROPERTY_COUNTRY
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class UpdateAttributeValueRequest {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private String address;
@@ -46,9 +50,10 @@ public class UpdateAttributeValueRequest {
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
 
+  public UpdateAttributeValueRequest() { 
+  }
 
   public UpdateAttributeValueRequest address(String address) {
-    
     this.address = address;
     return this;
   }
@@ -57,6 +62,7 @@ public class UpdateAttributeValueRequest {
    * 
    * @return address
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Ronda de la Comunicacion s/n", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -66,13 +72,14 @@ public class UpdateAttributeValueRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAddress(String address) {
     this.address = address;
   }
 
 
   public UpdateAttributeValueRequest zipCode(Integer zipCode) {
-    
     this.zipCode = zipCode;
     return this;
   }
@@ -81,6 +88,7 @@ public class UpdateAttributeValueRequest {
    * 
    * @return zipCode
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "28050", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ZIP_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -90,13 +98,14 @@ public class UpdateAttributeValueRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ZIP_CODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setZipCode(Integer zipCode) {
     this.zipCode = zipCode;
   }
 
 
   public UpdateAttributeValueRequest city(String city) {
-    
     this.city = city;
     return this;
   }
@@ -105,6 +114,7 @@ public class UpdateAttributeValueRequest {
    * 
    * @return city
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Madrid", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -114,13 +124,14 @@ public class UpdateAttributeValueRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCity(String city) {
     this.city = city;
   }
 
 
   public UpdateAttributeValueRequest country(String country) {
-    
     this.country = country;
     return this;
   }
@@ -129,6 +140,7 @@ public class UpdateAttributeValueRequest {
    * 
    * @return country
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Spain", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -138,13 +150,18 @@ public class UpdateAttributeValueRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCountry(String country) {
     this.country = country;
   }
 
 
+  /**
+   * Return true if this UpdateAttributeValueRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -163,7 +180,6 @@ public class UpdateAttributeValueRequest {
     return Objects.hash(address, zipCode, city, country);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -180,7 +196,7 @@ public class UpdateAttributeValueRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

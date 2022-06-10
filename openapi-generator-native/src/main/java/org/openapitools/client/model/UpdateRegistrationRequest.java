@@ -15,13 +15,17 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * UpdateRegistrationRequest
@@ -29,14 +33,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   UpdateRegistrationRequest.JSON_PROPERTY_EXPIRES
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class UpdateRegistrationRequest {
   public static final String JSON_PROPERTY_EXPIRES = "expires";
   private String expires;
 
+  public UpdateRegistrationRequest() { 
+  }
 
   public UpdateRegistrationRequest expires(String expires) {
-    
     this.expires = expires;
     return this;
   }
@@ -45,6 +50,7 @@ public class UpdateRegistrationRequest {
    * 
    * @return expires
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "10/4/2017 12:00:00 AM", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXPIRES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -54,13 +60,18 @@ public class UpdateRegistrationRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPIRES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpires(String expires) {
     this.expires = expires;
   }
 
 
+  /**
+   * Return true if this UpdateRegistrationRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -76,7 +87,6 @@ public class UpdateRegistrationRequest {
     return Objects.hash(expires);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -90,7 +100,7 @@ public class UpdateRegistrationRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

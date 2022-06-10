@@ -15,13 +15,17 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * RetrieveEntityResponse
@@ -33,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RetrieveEntityResponse.JSON_PROPERTY_HUMIDITY,
   RetrieveEntityResponse.JSON_PROPERTY_LOCATION
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class RetrieveEntityResponse {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -50,9 +54,10 @@ public class RetrieveEntityResponse {
   public static final String JSON_PROPERTY_LOCATION = "location";
   private Object location;
 
+  public RetrieveEntityResponse() { 
+  }
 
   public RetrieveEntityResponse type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -61,6 +66,7 @@ public class RetrieveEntityResponse {
    * 
    * @return type
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Room", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -70,13 +76,14 @@ public class RetrieveEntityResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(String type) {
     this.type = type;
   }
 
 
   public RetrieveEntityResponse id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -85,6 +92,7 @@ public class RetrieveEntityResponse {
    * 
    * @return id
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Bcn_Welt", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -94,13 +102,14 @@ public class RetrieveEntityResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public RetrieveEntityResponse temperature(Object temperature) {
-    
     this.temperature = temperature;
     return this;
   }
@@ -109,6 +118,7 @@ public class RetrieveEntityResponse {
    * 
    * @return temperature
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"value\":21.7,\"type\":\"Number\"}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TEMPERATURE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -118,13 +128,14 @@ public class RetrieveEntityResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TEMPERATURE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemperature(Object temperature) {
     this.temperature = temperature;
   }
 
 
   public RetrieveEntityResponse humidity(Object humidity) {
-    
     this.humidity = humidity;
     return this;
   }
@@ -133,6 +144,7 @@ public class RetrieveEntityResponse {
    * 
    * @return humidity
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"value\":60,\"type\":\"Number\"}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_HUMIDITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -142,13 +154,14 @@ public class RetrieveEntityResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HUMIDITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHumidity(Object humidity) {
     this.humidity = humidity;
   }
 
 
   public RetrieveEntityResponse location(Object location) {
-    
     this.location = location;
     return this;
   }
@@ -157,6 +170,7 @@ public class RetrieveEntityResponse {
    * 
    * @return location
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"value\":\"41.3763726, 2.1864475\",\"type\":\"geo:point\",\"metadata\":{\"crs\":{\"value\":\"WGS84\",\"type\":\"Text\"}}}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -166,13 +180,18 @@ public class RetrieveEntityResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LOCATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLocation(Object location) {
     this.location = location;
   }
 
 
+  /**
+   * Return true if this RetrieveEntityResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -192,7 +211,6 @@ public class RetrieveEntityResponse {
     return Objects.hash(type, id, temperature, humidity, location);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -210,7 +228,7 @@ public class RetrieveEntityResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

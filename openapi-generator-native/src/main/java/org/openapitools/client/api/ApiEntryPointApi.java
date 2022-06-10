@@ -14,6 +14,7 @@ package org.openapitools.client.api;
 
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
 import org.openapitools.client.Pair;
 
 import org.openapitools.client.model.RetrieveApiResourcesResponse;
@@ -28,14 +29,15 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
-import java.util.function.Consumer;
 
 import java.util.ArrayList;
 import java.util.StringJoiner;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.function.Consumer;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class ApiEntryPointApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -43,7 +45,8 @@ public class ApiEntryPointApi {
   private final Consumer<HttpRequest.Builder> memberVarInterceptor;
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
-  
+  private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
+
   public ApiEntryPointApi() {
     this(new ApiClient());
   }
@@ -55,6 +58,20 @@ public class ApiEntryPointApi {
     memberVarInterceptor = apiClient.getRequestInterceptor();
     memberVarReadTimeout = apiClient.getReadTimeout();
     memberVarResponseInterceptor = apiClient.getResponseInterceptor();
+    memberVarAsyncResponseInterceptor = apiClient.getAsyncResponseInterceptor();
+  }
+
+  protected ApiException getApiException(String operationId, HttpResponse<InputStream> response) throws IOException {
+    String body = response.body() == null ? null : new String(response.body().readAllBytes());
+    String message = formatExceptionMessage(operationId, response.statusCode(), body);
+    return new ApiException(response.statusCode(), message, response.headers(), body);
+  }
+
+  private String formatExceptionMessage(String operationId, int statusCode, String body) {
+    if (body == null || body.isEmpty()) {
+      body = "[no body]";
+    }
+    return operationId + " call failed with: " + statusCode + " - " + body;
   }
 
   /**
@@ -64,6 +81,47 @@ public class ApiEntryPointApi {
    * @throws ApiException if fails to make API call
    */
   public RetrieveApiResourcesResponse retrieveAPIResources() throws ApiException {
+    ApiResponse<RetrieveApiResourcesResponse> localVarResponse = retrieveAPIResourcesWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Retrieve API Resources
+   * This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body. It is recommended to follow the “url” link values, [Link](https://tools.ietf.org/html/rfc5988) or Location headers where applicable to retrieve resources. Instead of constructing your own URLs, to keep your client decoupled from implementation details.
+   * @return ApiResponse&lt;RetrieveApiResourcesResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<RetrieveApiResourcesResponse> retrieveAPIResourcesWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = retrieveAPIResourcesRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("retrieveAPIResources", localVarResponse);
+        }
+        return new ApiResponse<RetrieveApiResourcesResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RetrieveApiResourcesResponse>() {}) // closes the InputStream
+          
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder retrieveAPIResourcesRequestBuilder() throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -73,34 +131,13 @@ public class ApiEntryPointApi {
 
     localVarRequestBuilder.header("Accept", "application/json");
 
-    try {
-      localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
-      if (memberVarReadTimeout != null) {
-        localVarRequestBuilder.timeout(memberVarReadTimeout);
-      }
-      if (memberVarInterceptor != null) {
-        memberVarInterceptor.accept(localVarRequestBuilder);
-      }
-
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }          
-      if (localVarResponse.statusCode()/ 100 != 2) {
-        throw new ApiException(localVarResponse.statusCode(),
-            "retrieveAPIResources call received non-success response",
-            localVarResponse.headers(),
-            localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
-      }
-
-      return memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RetrieveApiResourcesResponse>() {});
-    } catch (IOException e) {
-      throw new ApiException(e);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
   }
 }

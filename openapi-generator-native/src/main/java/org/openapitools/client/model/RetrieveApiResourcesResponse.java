@@ -15,13 +15,17 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * RetrieveApiResourcesResponse
@@ -32,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RetrieveApiResourcesResponse.JSON_PROPERTY_SUBSCRIPTIONS_URL,
   RetrieveApiResourcesResponse.JSON_PROPERTY_REGISTRATIONS_URL
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class RetrieveApiResourcesResponse {
   public static final String JSON_PROPERTY_ENTITIES_URL = "entities_url";
   private String entitiesUrl;
@@ -46,9 +50,10 @@ public class RetrieveApiResourcesResponse {
   public static final String JSON_PROPERTY_REGISTRATIONS_URL = "registrations_url";
   private String registrationsUrl;
 
+  public RetrieveApiResourcesResponse() { 
+  }
 
   public RetrieveApiResourcesResponse entitiesUrl(String entitiesUrl) {
-    
     this.entitiesUrl = entitiesUrl;
     return this;
   }
@@ -57,6 +62,7 @@ public class RetrieveApiResourcesResponse {
    * URL which points to the entities resource
    * @return entitiesUrl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "/v2/entities", required = true, value = "URL which points to the entities resource")
   @JsonProperty(JSON_PROPERTY_ENTITIES_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -66,13 +72,14 @@ public class RetrieveApiResourcesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENTITIES_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEntitiesUrl(String entitiesUrl) {
     this.entitiesUrl = entitiesUrl;
   }
 
 
   public RetrieveApiResourcesResponse typesUrl(String typesUrl) {
-    
     this.typesUrl = typesUrl;
     return this;
   }
@@ -81,6 +88,7 @@ public class RetrieveApiResourcesResponse {
    * URL which points to the types resource
    * @return typesUrl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "/v2/types", required = true, value = "URL which points to the types resource")
   @JsonProperty(JSON_PROPERTY_TYPES_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -90,13 +98,14 @@ public class RetrieveApiResourcesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPES_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTypesUrl(String typesUrl) {
     this.typesUrl = typesUrl;
   }
 
 
   public RetrieveApiResourcesResponse subscriptionsUrl(String subscriptionsUrl) {
-    
     this.subscriptionsUrl = subscriptionsUrl;
     return this;
   }
@@ -105,6 +114,7 @@ public class RetrieveApiResourcesResponse {
    * URL which points to the subscriptions resource
    * @return subscriptionsUrl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "/v2/subscriptions", required = true, value = "URL which points to the subscriptions resource")
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTIONS_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -114,13 +124,14 @@ public class RetrieveApiResourcesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUBSCRIPTIONS_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSubscriptionsUrl(String subscriptionsUrl) {
     this.subscriptionsUrl = subscriptionsUrl;
   }
 
 
   public RetrieveApiResourcesResponse registrationsUrl(String registrationsUrl) {
-    
     this.registrationsUrl = registrationsUrl;
     return this;
   }
@@ -129,6 +140,7 @@ public class RetrieveApiResourcesResponse {
    * URL which points to the registrations resource
    * @return registrationsUrl
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "/v2/registrations", required = true, value = "URL which points to the registrations resource")
   @JsonProperty(JSON_PROPERTY_REGISTRATIONS_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -138,13 +150,18 @@ public class RetrieveApiResourcesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_REGISTRATIONS_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRegistrationsUrl(String registrationsUrl) {
     this.registrationsUrl = registrationsUrl;
   }
 
 
+  /**
+   * Return true if this RetrieveApiResourcesResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -163,7 +180,6 @@ public class RetrieveApiResourcesResponse {
     return Objects.hash(entitiesUrl, typesUrl, subscriptionsUrl, registrationsUrl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -180,7 +196,7 @@ public class RetrieveApiResourcesResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

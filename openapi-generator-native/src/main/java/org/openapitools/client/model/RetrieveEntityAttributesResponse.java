@@ -15,13 +15,17 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * RetrieveEntityAttributesResponse
@@ -31,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RetrieveEntityAttributesResponse.JSON_PROPERTY_HUMIDITY,
   RetrieveEntityAttributesResponse.JSON_PROPERTY_LOCATION
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class RetrieveEntityAttributesResponse {
   public static final String JSON_PROPERTY_TEMPERATURE = "temperature";
   private Object temperature;
@@ -42,9 +46,10 @@ public class RetrieveEntityAttributesResponse {
   public static final String JSON_PROPERTY_LOCATION = "location";
   private Object location;
 
+  public RetrieveEntityAttributesResponse() { 
+  }
 
   public RetrieveEntityAttributesResponse temperature(Object temperature) {
-    
     this.temperature = temperature;
     return this;
   }
@@ -53,6 +58,7 @@ public class RetrieveEntityAttributesResponse {
    * 
    * @return temperature
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"value\":21.7,\"type\":\"Number\"}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TEMPERATURE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -62,13 +68,14 @@ public class RetrieveEntityAttributesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TEMPERATURE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemperature(Object temperature) {
     this.temperature = temperature;
   }
 
 
   public RetrieveEntityAttributesResponse humidity(Object humidity) {
-    
     this.humidity = humidity;
     return this;
   }
@@ -77,6 +84,7 @@ public class RetrieveEntityAttributesResponse {
    * 
    * @return humidity
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"value\":60,\"type\":\"Number\"}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_HUMIDITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -86,13 +94,14 @@ public class RetrieveEntityAttributesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HUMIDITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHumidity(Object humidity) {
     this.humidity = humidity;
   }
 
 
   public RetrieveEntityAttributesResponse location(Object location) {
-    
     this.location = location;
     return this;
   }
@@ -101,6 +110,7 @@ public class RetrieveEntityAttributesResponse {
    * 
    * @return location
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"value\":\"41.3763726, 2.1864475\",\"type\":\"geo:point\",\"metadata\":{\"crs\":{\"value\":\"WGS84\",\"type\":\"Text\"}}}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -110,13 +120,18 @@ public class RetrieveEntityAttributesResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LOCATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLocation(Object location) {
     this.location = location;
   }
 
 
+  /**
+   * Return true if this RetrieveEntityAttributesResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -134,7 +149,6 @@ public class RetrieveEntityAttributesResponse {
     return Objects.hash(temperature, humidity, location);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -150,7 +164,7 @@ public class RetrieveEntityAttributesResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

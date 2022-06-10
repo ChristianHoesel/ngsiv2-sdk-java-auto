@@ -15,13 +15,17 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * CreateSubscriptionRequest
@@ -33,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSubscriptionRequest.JSON_PROPERTY_EXPIRES,
   CreateSubscriptionRequest.JSON_PROPERTY_THROTTLING
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class CreateSubscriptionRequest {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -50,9 +54,10 @@ public class CreateSubscriptionRequest {
   public static final String JSON_PROPERTY_THROTTLING = "throttling";
   private Integer throttling;
 
+  public CreateSubscriptionRequest() { 
+  }
 
   public CreateSubscriptionRequest description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -61,22 +66,24 @@ public class CreateSubscriptionRequest {
    * 
    * @return description
   **/
-  @ApiModelProperty(example = "One subscription to rule them all", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "One subscription to rule them all", value = "")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public CreateSubscriptionRequest subject(Object subject) {
-    
     this.subject = subject;
     return this;
   }
@@ -85,6 +92,7 @@ public class CreateSubscriptionRequest {
    * 
    * @return subject
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"entities\":[{\"idPattern\":\".*\",\"type\":\"Room\"}],\"condition\":{\"attrs\":[\"temperature\"],\"expression\":{\"q\":\"temperature>40\"}}}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -94,13 +102,14 @@ public class CreateSubscriptionRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSubject(Object subject) {
     this.subject = subject;
   }
 
 
   public CreateSubscriptionRequest notification(Object notification) {
-    
     this.notification = notification;
     return this;
   }
@@ -109,6 +118,7 @@ public class CreateSubscriptionRequest {
    * 
    * @return notification
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"http\":{\"url\":\"http://localhost:1234\"},\"attrs\":[\"temperature\",\"humidity\"]}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -118,13 +128,14 @@ public class CreateSubscriptionRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNotification(Object notification) {
     this.notification = notification;
   }
 
 
   public CreateSubscriptionRequest expires(String expires) {
-    
     this.expires = expires;
     return this;
   }
@@ -133,22 +144,24 @@ public class CreateSubscriptionRequest {
    * 
    * @return expires
   **/
-  @ApiModelProperty(example = "4/5/2016 2:00:00 PM", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "4/5/2016 2:00:00 PM", value = "")
   @JsonProperty(JSON_PROPERTY_EXPIRES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getExpires() {
     return expires;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPIRES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpires(String expires) {
     this.expires = expires;
   }
 
 
   public CreateSubscriptionRequest throttling(Integer throttling) {
-    
     this.throttling = throttling;
     return this;
   }
@@ -157,22 +170,28 @@ public class CreateSubscriptionRequest {
    * 
    * @return throttling
   **/
-  @ApiModelProperty(example = "5", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "5", value = "")
   @JsonProperty(JSON_PROPERTY_THROTTLING)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getThrottling() {
     return throttling;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_THROTTLING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThrottling(Integer throttling) {
     this.throttling = throttling;
   }
 
 
+  /**
+   * Return true if this CreateSubscriptionRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -192,7 +211,6 @@ public class CreateSubscriptionRequest {
     return Objects.hash(description, subject, notification, expires, throttling);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -210,7 +228,7 @@ public class CreateSubscriptionRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 
 /**
  * API tests for RegistrationsApi
@@ -47,8 +49,9 @@ public class RegistrationsApiTest {
     public void createRegistrationTest() throws ApiException {
         String contentType = null;
         CreateRegistrationRequest body = null;
+        
         api.createRegistration(contentType, body);
-
+        
         // TODO: test validations
     }
     
@@ -63,8 +66,9 @@ public class RegistrationsApiTest {
     @Test
     public void deleteRegistrationTest() throws ApiException {
         String registrationId = null;
+        
         api.deleteRegistration(registrationId);
-
+        
         // TODO: test validations
     }
     
@@ -81,8 +85,9 @@ public class RegistrationsApiTest {
         Double limit = null;
         Double offset = null;
         String options = null;
-        List<ListRegistrationsResponse> response = api.listRegistrations(limit, offset, options);
-
+        List<ListRegistrationsResponse> response = 
+        api.listRegistrations(limit, offset, options);
+        
         // TODO: test validations
     }
     
@@ -97,8 +102,9 @@ public class RegistrationsApiTest {
     @Test
     public void retrieveRegistrationTest() throws ApiException {
         String registrationId = null;
-        RetrieveRegistrationResponse response = api.retrieveRegistration(registrationId);
-
+        RetrieveRegistrationResponse response = 
+        api.retrieveRegistration(registrationId);
+        
         // TODO: test validations
     }
     
@@ -115,8 +121,9 @@ public class RegistrationsApiTest {
         String registrationId = null;
         String contentType = null;
         UpdateRegistrationRequest body = null;
+        
         api.updateRegistration(registrationId, contentType, body);
-
+        
         // TODO: test validations
     }
     

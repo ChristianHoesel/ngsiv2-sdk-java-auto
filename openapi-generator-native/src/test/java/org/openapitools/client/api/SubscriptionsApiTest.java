@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 
 /**
  * API tests for SubscriptionsApi
@@ -46,8 +48,9 @@ public class SubscriptionsApiTest {
     public void createSubscriptionTest() throws ApiException {
         String contentType = null;
         CreateSubscriptionRequest body = null;
+        
         api.createSubscription(contentType, body);
-
+        
         // TODO: test validations
     }
     
@@ -62,8 +65,9 @@ public class SubscriptionsApiTest {
     @Test
     public void deleteSubscriptionTest() throws ApiException {
         String subscriptionId = null;
+        
         api.deleteSubscription(subscriptionId);
-
+        
         // TODO: test validations
     }
     
@@ -80,8 +84,9 @@ public class SubscriptionsApiTest {
         Double limit = null;
         Double offset = null;
         String options = null;
-        List<ListSubscriptionsResponse> response = api.listSubscriptions(limit, offset, options);
-
+        List<ListSubscriptionsResponse> response = 
+        api.listSubscriptions(limit, offset, options);
+        
         // TODO: test validations
     }
     
@@ -96,8 +101,9 @@ public class SubscriptionsApiTest {
     @Test
     public void retrieveSubscriptionTest() throws ApiException {
         String subscriptionId = null;
-        Object response = api.retrieveSubscription(subscriptionId);
-
+        Object response = 
+        api.retrieveSubscription(subscriptionId);
+        
         // TODO: test validations
     }
     
@@ -114,8 +120,9 @@ public class SubscriptionsApiTest {
         String subscriptionId = null;
         String contentType = null;
         UpdateSubscriptionRequest body = null;
+        
         api.updateSubscription(subscriptionId, contentType, body);
-
+        
         // TODO: test validations
     }
     

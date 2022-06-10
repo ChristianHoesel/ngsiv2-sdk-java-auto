@@ -2,17 +2,18 @@
 
 # ListRegistrationsResponse
 
+
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**description** | **String** |  | 
-**dataProvided** | [**Object**](.md) |  | 
-**provider** | [**Object**](.md) |  | 
-**expires** | **String** |  | 
-**status** | **String** |  | 
-**forwardingInformation** | [**Object**](.md) |  | 
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**id** | **String** |  |  |
+|**description** | **String** |  |  |
+|**dataProvided** | **Object** |  |  |
+|**provider** | **Object** |  |  |
+|**expires** | **String** |  |  |
+|**status** | **String** |  |  |
+|**forwardingInformation** | **Object** |  |  |
 
 
 

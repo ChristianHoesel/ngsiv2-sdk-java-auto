@@ -15,15 +15,19 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * QueryRequest
@@ -34,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   QueryRequest.JSON_PROPERTY_EXPRESSION,
   QueryRequest.JSON_PROPERTY_METADATA
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class QueryRequest {
   public static final String JSON_PROPERTY_ENTITIES = "entities";
   private List<Object> entities = new ArrayList<>();
@@ -48,9 +52,10 @@ public class QueryRequest {
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private List<String> metadata = new ArrayList<>();
 
+  public QueryRequest() { 
+  }
 
   public QueryRequest entities(List<Object> entities) {
-    
     this.entities = entities;
     return this;
   }
@@ -64,6 +69,7 @@ public class QueryRequest {
    * 
    * @return entities
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "[{idPattern=.*, type=Room}, {id=Car, type=P-9873-K}]", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ENTITIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -73,13 +79,14 @@ public class QueryRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ENTITIES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEntities(List<Object> entities) {
     this.entities = entities;
   }
 
 
   public QueryRequest attrs(List<String> attrs) {
-    
     this.attrs = attrs;
     return this;
   }
@@ -93,6 +100,7 @@ public class QueryRequest {
    * 
    * @return attrs
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "[temperature, humidity]", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -102,13 +110,14 @@ public class QueryRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ATTRS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAttrs(List<String> attrs) {
     this.attrs = attrs;
   }
 
 
   public QueryRequest expression(Object expression) {
-    
     this.expression = expression;
     return this;
   }
@@ -117,6 +126,7 @@ public class QueryRequest {
    * 
    * @return expression
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"q\":\"temperature>20\"}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -126,13 +136,14 @@ public class QueryRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPRESSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpression(Object expression) {
     this.expression = expression;
   }
 
 
   public QueryRequest metadata(List<String> metadata) {
-    
     this.metadata = metadata;
     return this;
   }
@@ -146,6 +157,7 @@ public class QueryRequest {
    * 
    * @return metadata
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "[accuracy, timestamp]", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -155,13 +167,18 @@ public class QueryRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMetadata(List<String> metadata) {
     this.metadata = metadata;
   }
 
 
+  /**
+   * Return true if this QueryRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -180,7 +197,6 @@ public class QueryRequest {
     return Objects.hash(entities, attrs, expression, metadata);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -197,7 +213,7 @@ public class QueryRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

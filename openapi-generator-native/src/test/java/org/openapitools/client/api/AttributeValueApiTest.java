@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 
 /**
  * API tests for AttributeValueApi
@@ -46,8 +48,9 @@ public class AttributeValueApiTest {
         String entityId = null;
         String attrName = null;
         String type = null;
-        GetAttributeValueResponse response = api.getAttributeValue(entityId, attrName, type);
-
+        GetAttributeValueResponse response = 
+        api.getAttributeValue(entityId, attrName, type);
+        
         // TODO: test validations
     }
     
@@ -66,8 +69,9 @@ public class AttributeValueApiTest {
         String contentType = null;
         UpdateAttributeValueRequest body = null;
         String type = null;
+        
         api.updateAttributeValue(entityId, attrName, contentType, body, type);
-
+        
         // TODO: test validations
     }
     

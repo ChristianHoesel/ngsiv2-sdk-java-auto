@@ -15,13 +15,17 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * ListRegistrationsResponse
@@ -35,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ListRegistrationsResponse.JSON_PROPERTY_STATUS,
   ListRegistrationsResponse.JSON_PROPERTY_FORWARDING_INFORMATION
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:35:25.798686+03:00[Europe/Athens]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:46:31.524327+03:00[Europe/Athens]")
 public class ListRegistrationsResponse {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -58,9 +62,10 @@ public class ListRegistrationsResponse {
   public static final String JSON_PROPERTY_FORWARDING_INFORMATION = "forwardingInformation";
   private Object forwardingInformation;
 
+  public ListRegistrationsResponse() { 
+  }
 
   public ListRegistrationsResponse id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -69,6 +74,7 @@ public class ListRegistrationsResponse {
    * 
    * @return id
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "abcdefg", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -78,13 +84,14 @@ public class ListRegistrationsResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(String id) {
     this.id = id;
   }
 
 
   public ListRegistrationsResponse description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -93,6 +100,7 @@ public class ListRegistrationsResponse {
    * 
    * @return description
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Example Context Source", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -102,13 +110,14 @@ public class ListRegistrationsResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public ListRegistrationsResponse dataProvided(Object dataProvided) {
-    
     this.dataProvided = dataProvided;
     return this;
   }
@@ -117,6 +126,7 @@ public class ListRegistrationsResponse {
    * 
    * @return dataProvided
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"entities\":[{\"id\":\"Bcn_Welt\",\"type\":\"Room\"}],\"attrs\":[\"temperature\"]}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_PROVIDED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -126,13 +136,14 @@ public class ListRegistrationsResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DATA_PROVIDED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDataProvided(Object dataProvided) {
     this.dataProvided = dataProvided;
   }
 
 
   public ListRegistrationsResponse provider(Object provider) {
-    
     this.provider = provider;
     return this;
   }
@@ -141,6 +152,7 @@ public class ListRegistrationsResponse {
    * 
    * @return provider
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"http\":{\"url\":\"http://contextsource.example.org\"},\"supportedForwardingMode\":\"all\"}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -150,13 +162,14 @@ public class ListRegistrationsResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROVIDER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProvider(Object provider) {
     this.provider = provider;
   }
 
 
   public ListRegistrationsResponse expires(String expires) {
-    
     this.expires = expires;
     return this;
   }
@@ -165,6 +178,7 @@ public class ListRegistrationsResponse {
    * 
    * @return expires
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "10/31/2017 12:00:00 PM", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXPIRES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -174,13 +188,14 @@ public class ListRegistrationsResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPIRES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpires(String expires) {
     this.expires = expires;
   }
 
 
   public ListRegistrationsResponse status(String status) {
-    
     this.status = status;
     return this;
   }
@@ -189,6 +204,7 @@ public class ListRegistrationsResponse {
    * 
    * @return status
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "active", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -198,13 +214,14 @@ public class ListRegistrationsResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(String status) {
     this.status = status;
   }
 
 
   public ListRegistrationsResponse forwardingInformation(Object forwardingInformation) {
-    
     this.forwardingInformation = forwardingInformation;
     return this;
   }
@@ -213,6 +230,7 @@ public class ListRegistrationsResponse {
    * 
    * @return forwardingInformation
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"timesSent\":12,\"lastForwarding\":\"2017-10-06T16:00:00Z\",\"lastSuccess\":\"2017-10-06T16:00:00Z\",\"lastFailure\":\"2017-10-05T16:00:00Z\"}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FORWARDING_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -222,13 +240,18 @@ public class ListRegistrationsResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FORWARDING_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setForwardingInformation(Object forwardingInformation) {
     this.forwardingInformation = forwardingInformation;
   }
 
 
+  /**
+   * Return true if this ListRegistrationsResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -250,7 +273,6 @@ public class ListRegistrationsResponse {
     return Objects.hash(id, description, dataProvided, provider, expires, status, forwardingInformation);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -270,7 +292,7 @@ public class ListRegistrationsResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
