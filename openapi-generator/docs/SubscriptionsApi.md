@@ -2,13 +2,13 @@
 
 All URIs are relative to *http://orion.lab.fiware.org*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createSubscription**](SubscriptionsApi.md#createSubscription) | **POST** /v2/subscriptions | Create Subscription
-[**deleteSubscription**](SubscriptionsApi.md#deleteSubscription) | **DELETE** /v2/subscriptions/{subscriptionId} | Delete subscription
-[**listSubscriptions**](SubscriptionsApi.md#listSubscriptions) | **GET** /v2/subscriptions | List Subscriptions
-[**retrieveSubscription**](SubscriptionsApi.md#retrieveSubscription) | **GET** /v2/subscriptions/{subscriptionId} | Retrieve Subscription
-[**updateSubscription**](SubscriptionsApi.md#updateSubscription) | **PATCH** /v2/subscriptions/{subscriptionId} | Update Subscription
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createSubscription**](SubscriptionsApi.md#createSubscription) | **POST** /v2/subscriptions | Create Subscription |
+| [**deleteSubscription**](SubscriptionsApi.md#deleteSubscription) | **DELETE** /v2/subscriptions/{subscriptionId} | Delete subscription |
+| [**listSubscriptions**](SubscriptionsApi.md#listSubscriptions) | **GET** /v2/subscriptions | List Subscriptions |
+| [**retrieveSubscription**](SubscriptionsApi.md#retrieveSubscription) | **GET** /v2/subscriptions/{subscriptionId} | Retrieve Subscription |
+| [**updateSubscription**](SubscriptionsApi.md#updateSubscription) | **PATCH** /v2/subscriptions/{subscriptionId} | Update Subscription |
 
 
 <a name="createSubscription"></a>
@@ -51,10 +51,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contentType** | **String**|  |
- **body** | [**CreateSubscriptionRequest**](CreateSubscriptionRequest.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contentType** | **String**|  | |
+| **body** | [**CreateSubscriptionRequest**](CreateSubscriptionRequest.md)|  | |
 
 ### Return type
 
@@ -72,7 +72,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** |  |  -  |
+| **201** |  |  -  |
 
 <a name="deleteSubscription"></a>
 # **deleteSubscription**
@@ -113,9 +113,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionId** | **String**| subscription Id. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscriptionId** | **String**| subscription Id. | |
 
 ### Return type
 
@@ -133,7 +133,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 
 <a name="listSubscriptions"></a>
 # **listSubscriptions**
@@ -160,7 +160,7 @@ public class Example {
     SubscriptionsApi apiInstance = new SubscriptionsApi(defaultClient);
     Double limit = 3.4D; // Double | Limit the number of subscriptions to be retrieved
     Double offset = 3.4D; // Double | Skip a number of subscriptions
-    String options = "options_example"; // String | Options dictionary
+    String options = "count"; // String | Options dictionary
     try {
       List<ListSubscriptionsResponse> result = apiInstance.listSubscriptions(limit, offset, options);
       System.out.println(result);
@@ -177,11 +177,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Double**| Limit the number of subscriptions to be retrieved | [optional]
- **offset** | **Double**| Skip a number of subscriptions | [optional]
- **options** | **String**| Options dictionary | [optional] [enum: count]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Double**| Limit the number of subscriptions to be retrieved | [optional] |
+| **offset** | **Double**| Skip a number of subscriptions | [optional] |
+| **options** | **String**| Options dictionary | [optional] [enum: count] |
 
 ### Return type
 
@@ -199,7 +199,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="retrieveSubscription"></a>
 # **retrieveSubscription**
@@ -241,9 +241,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionId** | **String**| subscription Id. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscriptionId** | **String**| subscription Id. | |
 
 ### Return type
 
@@ -261,7 +261,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="updateSubscription"></a>
 # **updateSubscription**
@@ -304,11 +304,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionId** | **String**| subscription Id. |
- **contentType** | **String**|  |
- **body** | [**UpdateSubscriptionRequest**](UpdateSubscriptionRequest.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscriptionId** | **String**| subscription Id. | |
+| **contentType** | **String**|  | |
+| **body** | [**UpdateSubscriptionRequest**](UpdateSubscriptionRequest.md)|  | |
 
 ### Return type
 
@@ -326,5 +326,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 

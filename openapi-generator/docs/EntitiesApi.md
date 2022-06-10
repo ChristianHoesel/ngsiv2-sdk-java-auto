@@ -2,16 +2,16 @@
 
 All URIs are relative to *http://orion.lab.fiware.org*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createEntity**](EntitiesApi.md#createEntity) | **POST** /v2/entities | Create Entity
-[**listEntities**](EntitiesApi.md#listEntities) | **GET** /v2/entities | List Entities
-[**removeEntity**](EntitiesApi.md#removeEntity) | **DELETE** /v2/entities/{entityId} | Remove Entity
-[**replaceAllEntityAttributes**](EntitiesApi.md#replaceAllEntityAttributes) | **PUT** /v2/entities/{entityId}/attrs | Replace all entity attributes
-[**retrieveEntity**](EntitiesApi.md#retrieveEntity) | **GET** /v2/entities/{entityId} | Retrieve Entity
-[**retrieveEntityAttributes**](EntitiesApi.md#retrieveEntityAttributes) | **GET** /v2/entities/{entityId}/attrs | Retrieve Entity Attributes
-[**updateExistingEntityAttributes**](EntitiesApi.md#updateExistingEntityAttributes) | **PATCH** /v2/entities/{entityId}/attrs | Update Existing Entity Attributes
-[**updateOrAppendEntityAttributes**](EntitiesApi.md#updateOrAppendEntityAttributes) | **POST** /v2/entities/{entityId}/attrs | Update or Append Entity Attributes
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createEntity**](EntitiesApi.md#createEntity) | **POST** /v2/entities | Create Entity |
+| [**listEntities**](EntitiesApi.md#listEntities) | **GET** /v2/entities | List Entities |
+| [**removeEntity**](EntitiesApi.md#removeEntity) | **DELETE** /v2/entities/{entityId} | Remove Entity |
+| [**replaceAllEntityAttributes**](EntitiesApi.md#replaceAllEntityAttributes) | **PUT** /v2/entities/{entityId}/attrs | Replace all entity attributes |
+| [**retrieveEntity**](EntitiesApi.md#retrieveEntity) | **GET** /v2/entities/{entityId} | Retrieve Entity |
+| [**retrieveEntityAttributes**](EntitiesApi.md#retrieveEntityAttributes) | **GET** /v2/entities/{entityId}/attrs | Retrieve Entity Attributes |
+| [**updateExistingEntityAttributes**](EntitiesApi.md#updateExistingEntityAttributes) | **PATCH** /v2/entities/{entityId}/attrs | Update Existing Entity Attributes |
+| [**updateOrAppendEntityAttributes**](EntitiesApi.md#updateOrAppendEntityAttributes) | **POST** /v2/entities/{entityId}/attrs | Update or Append Entity Attributes |
 
 
 <a name="createEntity"></a>
@@ -39,7 +39,7 @@ public class Example {
     EntitiesApi apiInstance = new EntitiesApi(defaultClient);
     String contentType = "contentType_example"; // String | 
     CreateEntityRequest body = new CreateEntityRequest(); // CreateEntityRequest | 
-    String options = "options_example"; // String | Options dictionary
+    String options = "keyValues"; // String | Options dictionary
     try {
       apiInstance.createEntity(contentType, body, options);
     } catch (ApiException e) {
@@ -55,11 +55,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contentType** | **String**|  |
- **body** | [**CreateEntityRequest**](CreateEntityRequest.md)|  |
- **options** | **String**| Options dictionary | [optional] [enum: keyValues, upsert]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contentType** | **String**|  | |
+| **body** | [**CreateEntityRequest**](CreateEntityRequest.md)|  | |
+| **options** | **String**| Options dictionary | [optional] [enum: keyValues, upsert] |
 
 ### Return type
 
@@ -77,7 +77,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 
 <a name="listEntities"></a>
 # **listEntities**
@@ -116,7 +116,7 @@ public class Example {
     String attrs = "attrs_example"; // String | Comma-separated list of attribute names whose data are to be included in the response. The attributes are retrieved in the order specified by this parameter. If this parameter is not included, the attributes are retrieved in arbitrary order. See \"Filtering out attributes and metadata\" section for more detail.
     String metadata = "metadata_example"; // String | A list of metadata names to include in the response. See \"Filtering out attributes and metadata\" section for more detail.
     String orderBy = "orderBy_example"; // String | Criteria for ordering results. See \"Ordering Results\" section for details.
-    String options = "options_example"; // String | Options dictionary
+    String options = "count"; // String | Options dictionary
     try {
       List<ListEntitiesResponse> result = apiInstance.listEntities(id, type, idPattern, typePattern, q, mq, georel, geometry, coords, limit, offset, attrs, metadata, orderBy, options);
       System.out.println(result);
@@ -133,23 +133,23 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| A comma-separated list of elements. Retrieve entities whose ID matches one of the elements in the list. Incompatible with &#x60;idPattern&#x60;. | [optional]
- **type** | **String**| comma-separated list of elements. Retrieve entities whose type matches one of the elements in the list. Incompatible with &#x60;typePattern&#x60;. | [optional]
- **idPattern** | **String**| A correctly formated regular expression. Retrieve entities whose ID matches the regular expression. Incompatible with &#x60;id&#x60;. | [optional]
- **typePattern** | **String**| A correctly formated regular expression. Retrieve entities whose type matches the regular expression. Incompatible with &#x60;type&#x60;. | [optional]
- **q** | **String**| A query expression, composed of a list of statements separated by &#x60;;&#x60;, i.e., q&#x3D;statement1;statement2;statement3. See [Simple Query Language specification](#simple_query_language). | [optional]
- **mq** | **String**| A query expression for attribute metadata, composed of a list of statements separated by &#x60;;&#x60;, i.e., mq&#x3D;statement1;statement2;statement3. See [Simple Query Language specification](#simple_query_language). | [optional]
- **georel** | **String**| Spatial relationship between matching entities and a reference shape. See [Geographical Queries](#geographical_queries). | [optional]
- **geometry** | **String**| Geografical area to which the query is restricted. See [Geographical Queries](#geographical_queries). | [optional]
- **coords** | **String**| List of latitude-longitude pairs of coordinates separated by &#39;;&#39;. See [Geographical Queries](#geographical_queries). | [optional]
- **limit** | **Double**| Limits the number of entities to be retrieved | [optional]
- **offset** | **Double**| Establishes the offset from where entities are retrieved | [optional]
- **attrs** | **String**| Comma-separated list of attribute names whose data are to be included in the response. The attributes are retrieved in the order specified by this parameter. If this parameter is not included, the attributes are retrieved in arbitrary order. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional]
- **metadata** | **String**| A list of metadata names to include in the response. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional]
- **orderBy** | **String**| Criteria for ordering results. See \&quot;Ordering Results\&quot; section for details. | [optional]
- **options** | **String**| Options dictionary | [optional] [enum: count, keyValues, values, unique]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| A comma-separated list of elements. Retrieve entities whose ID matches one of the elements in the list. Incompatible with &#x60;idPattern&#x60;. | [optional] |
+| **type** | **String**| comma-separated list of elements. Retrieve entities whose type matches one of the elements in the list. Incompatible with &#x60;typePattern&#x60;. | [optional] |
+| **idPattern** | **String**| A correctly formated regular expression. Retrieve entities whose ID matches the regular expression. Incompatible with &#x60;id&#x60;. | [optional] |
+| **typePattern** | **String**| A correctly formated regular expression. Retrieve entities whose type matches the regular expression. Incompatible with &#x60;type&#x60;. | [optional] |
+| **q** | **String**| A query expression, composed of a list of statements separated by &#x60;;&#x60;, i.e., q&#x3D;statement1;statement2;statement3. See [Simple Query Language specification](#simple_query_language). | [optional] |
+| **mq** | **String**| A query expression for attribute metadata, composed of a list of statements separated by &#x60;;&#x60;, i.e., mq&#x3D;statement1;statement2;statement3. See [Simple Query Language specification](#simple_query_language). | [optional] |
+| **georel** | **String**| Spatial relationship between matching entities and a reference shape. See [Geographical Queries](#geographical_queries). | [optional] |
+| **geometry** | **String**| Geografical area to which the query is restricted. See [Geographical Queries](#geographical_queries). | [optional] |
+| **coords** | **String**| List of latitude-longitude pairs of coordinates separated by &#39;;&#39;. See [Geographical Queries](#geographical_queries). | [optional] |
+| **limit** | **Double**| Limits the number of entities to be retrieved | [optional] |
+| **offset** | **Double**| Establishes the offset from where entities are retrieved | [optional] |
+| **attrs** | **String**| Comma-separated list of attribute names whose data are to be included in the response. The attributes are retrieved in the order specified by this parameter. If this parameter is not included, the attributes are retrieved in arbitrary order. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional] |
+| **metadata** | **String**| A list of metadata names to include in the response. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional] |
+| **orderBy** | **String**| Criteria for ordering results. See \&quot;Ordering Results\&quot; section for details. | [optional] |
+| **options** | **String**| Options dictionary | [optional] [enum: count, keyValues, values, unique] |
 
 ### Return type
 
@@ -167,7 +167,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="removeEntity"></a>
 # **removeEntity**
@@ -209,10 +209,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Id of the entity to be deleted |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Id of the entity to be deleted | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
 
 ### Return type
 
@@ -230,7 +230,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 
 <a name="replaceAllEntityAttributes"></a>
 # **replaceAllEntityAttributes**
@@ -259,7 +259,7 @@ public class Example {
     String contentType = "contentType_example"; // String | 
     ReplaceAllEntityAttributesRequest body = new ReplaceAllEntityAttributesRequest(); // ReplaceAllEntityAttributesRequest | 
     String type = "type_example"; // String | Entity type, to avoid ambiguity in case there are several entities with the same entity id.
-    String options = "options_example"; // String | Operations options
+    String options = "keyValues"; // String | Operations options
     try {
       apiInstance.replaceAllEntityAttributes(entityId, contentType, body, type, options);
     } catch (ApiException e) {
@@ -275,13 +275,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Id of the entity in question. |
- **contentType** | **String**|  |
- **body** | [**ReplaceAllEntityAttributesRequest**](ReplaceAllEntityAttributesRequest.md)|  |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
- **options** | **String**| Operations options | [optional] [enum: keyValues]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Id of the entity in question. | |
+| **contentType** | **String**|  | |
+| **body** | [**ReplaceAllEntityAttributesRequest**](ReplaceAllEntityAttributesRequest.md)|  | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
+| **options** | **String**| Operations options | [optional] [enum: keyValues] |
 
 ### Return type
 
@@ -299,7 +299,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 
 <a name="retrieveEntity"></a>
 # **retrieveEntity**
@@ -328,7 +328,7 @@ public class Example {
     String type = "type_example"; // String | Entity type, to avoid ambiguity in case there are several entities with the same entity id.
     String attrs = "attrs_example"; // String | Comma-separated list of attribute names whose data must be included in the response. The attributes are retrieved in the order specified by this parameter. See \"Filtering out attributes and metadata\" section for more detail. If this parameter is not included, the attributes are retrieved in arbitrary order, and all the attributes of the entity are included in the response.
     String metadata = "metadata_example"; // String | A list of metadata names to include in the response. See \"Filtering out attributes and metadata\" section for more detail.
-    String options = "options_example"; // String | Options dictionary
+    String options = "keyValues"; // String | Options dictionary
     try {
       RetrieveEntityResponse result = apiInstance.retrieveEntity(entityId, type, attrs, metadata, options);
       System.out.println(result);
@@ -345,13 +345,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Id of the entity to be retrieved |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
- **attrs** | **String**| Comma-separated list of attribute names whose data must be included in the response. The attributes are retrieved in the order specified by this parameter. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. If this parameter is not included, the attributes are retrieved in arbitrary order, and all the attributes of the entity are included in the response. | [optional]
- **metadata** | **String**| A list of metadata names to include in the response. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional]
- **options** | **String**| Options dictionary | [optional] [enum: keyValues, values, unique]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Id of the entity to be retrieved | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
+| **attrs** | **String**| Comma-separated list of attribute names whose data must be included in the response. The attributes are retrieved in the order specified by this parameter. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. If this parameter is not included, the attributes are retrieved in arbitrary order, and all the attributes of the entity are included in the response. | [optional] |
+| **metadata** | **String**| A list of metadata names to include in the response. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional] |
+| **options** | **String**| Options dictionary | [optional] [enum: keyValues, values, unique] |
 
 ### Return type
 
@@ -369,7 +369,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="retrieveEntityAttributes"></a>
 # **retrieveEntityAttributes**
@@ -398,7 +398,7 @@ public class Example {
     String type = "type_example"; // String | Entity type, to avoid ambiguity in case there are several entities with the same entity id.
     String attrs = "attrs_example"; // String | Comma-separated list of attribute names whose data are to be included in the response. The attributes are retrieved in the order specified by this parameter. If this parameter is not included, the attributes are retrieved in arbitrary order, and all the attributes of the entity are included in the response. See \"Filtering out attributes and metadata\" section for more detail.
     String metadata = "metadata_example"; // String | A list of metadata names to include in the response. See \"Filtering out attributes and metadata\" section for more detail.
-    String options = "options_example"; // String | Options dictionary
+    String options = "keyValues"; // String | Options dictionary
     try {
       RetrieveEntityAttributesResponse result = apiInstance.retrieveEntityAttributes(entityId, type, attrs, metadata, options);
       System.out.println(result);
@@ -415,13 +415,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Id of the entity to be retrieved |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
- **attrs** | **String**| Comma-separated list of attribute names whose data are to be included in the response. The attributes are retrieved in the order specified by this parameter. If this parameter is not included, the attributes are retrieved in arbitrary order, and all the attributes of the entity are included in the response. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional]
- **metadata** | **String**| A list of metadata names to include in the response. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional]
- **options** | **String**| Options dictionary | [optional] [enum: keyValues, values, unique]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Id of the entity to be retrieved | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
+| **attrs** | **String**| Comma-separated list of attribute names whose data are to be included in the response. The attributes are retrieved in the order specified by this parameter. If this parameter is not included, the attributes are retrieved in arbitrary order, and all the attributes of the entity are included in the response. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional] |
+| **metadata** | **String**| A list of metadata names to include in the response. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional] |
+| **options** | **String**| Options dictionary | [optional] [enum: keyValues, values, unique] |
 
 ### Return type
 
@@ -439,7 +439,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="updateExistingEntityAttributes"></a>
 # **updateExistingEntityAttributes**
@@ -468,7 +468,7 @@ public class Example {
     String contentType = "contentType_example"; // String | 
     UpdateExistingEntityAttributesRequest body = new UpdateExistingEntityAttributesRequest(); // UpdateExistingEntityAttributesRequest | 
     String type = "type_example"; // String | Entity type, to avoid ambiguity in case there are several entities with the same entity id.
-    String options = "options_example"; // String | Operations options
+    String options = "keyValues"; // String | Operations options
     try {
       apiInstance.updateExistingEntityAttributes(entityId, contentType, body, type, options);
     } catch (ApiException e) {
@@ -484,13 +484,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Id of the entity to be updated |
- **contentType** | **String**|  |
- **body** | [**UpdateExistingEntityAttributesRequest**](UpdateExistingEntityAttributesRequest.md)|  |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
- **options** | **String**| Operations options | [optional] [enum: keyValues]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Id of the entity to be updated | |
+| **contentType** | **String**|  | |
+| **body** | [**UpdateExistingEntityAttributesRequest**](UpdateExistingEntityAttributesRequest.md)|  | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
+| **options** | **String**| Operations options | [optional] [enum: keyValues] |
 
 ### Return type
 
@@ -508,7 +508,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 
 <a name="updateOrAppendEntityAttributes"></a>
 # **updateOrAppendEntityAttributes**
@@ -537,7 +537,7 @@ public class Example {
     String contentType = "contentType_example"; // String | 
     UpdateOrAppendEntityAttributesRequest body = new UpdateOrAppendEntityAttributesRequest(); // UpdateOrAppendEntityAttributesRequest | 
     String type = "type_example"; // String | Entity type, to avoid ambiguity in case there are several entities with the same entity id.
-    String options = "options_example"; // String | Operations options
+    String options = "append"; // String | Operations options
     try {
       apiInstance.updateOrAppendEntityAttributes(entityId, contentType, body, type, options);
     } catch (ApiException e) {
@@ -553,13 +553,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Entity id to be updated |
- **contentType** | **String**|  |
- **body** | [**UpdateOrAppendEntityAttributesRequest**](UpdateOrAppendEntityAttributesRequest.md)|  |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
- **options** | **String**| Operations options | [optional] [enum: append, keyValues]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Entity id to be updated | |
+| **contentType** | **String**|  | |
+| **body** | [**UpdateOrAppendEntityAttributesRequest**](UpdateOrAppendEntityAttributesRequest.md)|  | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
+| **options** | **String**| Operations options | [optional] [enum: append, keyValues] |
 
 ### Return type
 
@@ -577,5 +577,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 

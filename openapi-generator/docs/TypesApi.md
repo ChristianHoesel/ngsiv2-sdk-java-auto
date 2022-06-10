@@ -2,10 +2,10 @@
 
 All URIs are relative to *http://orion.lab.fiware.org*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**listEntityTypes**](TypesApi.md#listEntityTypes) | **GET** /v2/types/ | List Entity Types
-[**retrieveEntityType**](TypesApi.md#retrieveEntityType) | **GET** /v2/types/{entityType} | Retrieve entity type
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**listEntityTypes**](TypesApi.md#listEntityTypes) | **GET** /v2/types/ | List Entity Types |
+| [**retrieveEntityType**](TypesApi.md#retrieveEntityType) | **GET** /v2/types/{entityType} | Retrieve entity type |
 
 
 <a name="listEntityTypes"></a>
@@ -33,7 +33,7 @@ public class Example {
     TypesApi apiInstance = new TypesApi(defaultClient);
     Double limit = 3.4D; // Double | Limit the number of types to be retrieved.
     Double offset = 3.4D; // Double | Skip a number of records.
-    String options = "options_example"; // String | Options dictionary.
+    String options = "count"; // String | Options dictionary.
     try {
       List<ListEntityTypesResponse> result = apiInstance.listEntityTypes(limit, offset, options);
       System.out.println(result);
@@ -50,11 +50,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Double**| Limit the number of types to be retrieved. | [optional]
- **offset** | **Double**| Skip a number of records. | [optional]
- **options** | **String**| Options dictionary. | [optional] [enum: count, values]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Double**| Limit the number of types to be retrieved. | [optional] |
+| **offset** | **Double**| Skip a number of records. | [optional] |
+| **options** | **String**| Options dictionary. | [optional] [enum: count, values] |
 
 ### Return type
 
@@ -72,7 +72,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="retrieveEntityType"></a>
 # **retrieveEntityType**
@@ -114,9 +114,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityType** | **String**| Entity Type |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityType** | **String**| Entity Type | |
 
 ### Return type
 
@@ -134,5 +134,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 

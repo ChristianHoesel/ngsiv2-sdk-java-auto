@@ -17,8 +17,8 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.model.CreateSubscriptionRequest;
 import org.openapitools.client.model.ListSubscriptionsResponse;
 import org.openapitools.client.model.UpdateSubscriptionRequest;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,52 +28,46 @@ import java.util.Map;
 /**
  * API tests for SubscriptionsApi
  */
-@Ignore
+@Disabled
 public class SubscriptionsApiTest {
 
     private final SubscriptionsApi api = new SubscriptionsApi();
 
-    
     /**
      * Create Subscription
      *
      * Creates a new subscription. The subscription is represented by a JSON object as described at the beginning of this section. Response: * Successful operation uses 201 Created * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createSubscriptionTest() throws ApiException {
         String contentType = null;
         CreateSubscriptionRequest body = null;
         api.createSubscription(contentType, body);
-
         // TODO: test validations
     }
-    
+
     /**
      * Delete subscription
      *
      * Cancels subscription. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteSubscriptionTest() throws ApiException {
         String subscriptionId = null;
         api.deleteSubscription(subscriptionId);
-
         // TODO: test validations
     }
-    
+
     /**
      * List Subscriptions
      *
      * Returns a list of all the subscriptions present in the system. Response: * Successful operation uses 200 OK * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listSubscriptionsTest() throws ApiException {
@@ -81,33 +75,29 @@ public class SubscriptionsApiTest {
         Double offset = null;
         String options = null;
         List<ListSubscriptionsResponse> response = api.listSubscriptions(limit, offset, options);
-
         // TODO: test validations
     }
-    
+
     /**
      * Retrieve Subscription
      *
      * The response is the subscription represented by a JSON object as described at the beginning of this section. Response: * Successful operation uses 200 OK * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void retrieveSubscriptionTest() throws ApiException {
         String subscriptionId = null;
         Object response = api.retrieveSubscription(subscriptionId);
-
         // TODO: test validations
     }
-    
+
     /**
      * Update Subscription
      *
      * Only the fields included in the request are updated in the subscription. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateSubscriptionTest() throws ApiException {
@@ -115,8 +105,7 @@ public class SubscriptionsApiTest {
         String contentType = null;
         UpdateSubscriptionRequest body = null;
         api.updateSubscription(subscriptionId, contentType, body);
-
         // TODO: test validations
     }
-    
+
 }

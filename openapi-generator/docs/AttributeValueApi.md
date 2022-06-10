@@ -2,10 +2,10 @@
 
 All URIs are relative to *http://orion.lab.fiware.org*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAttributeValue**](AttributeValueApi.md#getAttributeValue) | **GET** /v2/entities/{entityId}/attrs/{attrName}/value | Get Attribute Value
-[**updateAttributeValue**](AttributeValueApi.md#updateAttributeValue) | **PUT** /v2/entities/{entityId}/attrs/{attrName}/value | Update Attribute Value
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getAttributeValue**](AttributeValueApi.md#getAttributeValue) | **GET** /v2/entities/{entityId}/attrs/{attrName}/value | Get Attribute Value |
+| [**updateAttributeValue**](AttributeValueApi.md#updateAttributeValue) | **PUT** /v2/entities/{entityId}/attrs/{attrName}/value | Update Attribute Value |
 
 
 <a name="getAttributeValue"></a>
@@ -50,11 +50,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Id of the entity in question |
- **attrName** | **String**| Name of the attribute to be retrieved. |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Id of the entity in question | |
+| **attrName** | **String**| Name of the attribute to be retrieved. | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
 
 ### Return type
 
@@ -72,7 +72,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="updateAttributeValue"></a>
 # **updateAttributeValue**
@@ -117,13 +117,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Id of the entity to be updated. |
- **attrName** | **String**| Attribute name. |
- **contentType** | **String**|  |
- **body** | [**UpdateAttributeValueRequest**](UpdateAttributeValueRequest.md)|  |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Id of the entity to be updated. | |
+| **attrName** | **String**| Attribute name. | |
+| **contentType** | **String**|  | |
+| **body** | [**UpdateAttributeValueRequest**](UpdateAttributeValueRequest.md)|  | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
 
 ### Return type
 
@@ -141,5 +141,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 

@@ -2,11 +2,11 @@
 
 All URIs are relative to *http://orion.lab.fiware.org*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAttributeData**](AttributesApi.md#getAttributeData) | **GET** /v2/entities/{entityId}/attrs/{attrName} | Get attribute data
-[**removeASingleAttribute**](AttributesApi.md#removeASingleAttribute) | **DELETE** /v2/entities/{entityId}/attrs/{attrName} | Remove a Single Attribute
-[**updateAttributeData**](AttributesApi.md#updateAttributeData) | **PUT** /v2/entities/{entityId}/attrs/{attrName} | Update Attribute Data
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getAttributeData**](AttributesApi.md#getAttributeData) | **GET** /v2/entities/{entityId}/attrs/{attrName} | Get attribute data |
+| [**removeASingleAttribute**](AttributesApi.md#removeASingleAttribute) | **DELETE** /v2/entities/{entityId}/attrs/{attrName} | Remove a Single Attribute |
+| [**updateAttributeData**](AttributesApi.md#updateAttributeData) | **PUT** /v2/entities/{entityId}/attrs/{attrName} | Update Attribute Data |
 
 
 <a name="getAttributeData"></a>
@@ -52,12 +52,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Id of the entity |
- **attrName** | **String**| Name of the attribute to be retrieved. |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
- **metadata** | **String**| A list of metadata names to include in the response. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Id of the entity | |
+| **attrName** | **String**| Name of the attribute to be retrieved. | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
+| **metadata** | **String**| A list of metadata names to include in the response. See \&quot;Filtering out attributes and metadata\&quot; section for more detail. | [optional] |
 
 ### Return type
 
@@ -75,7 +75,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="removeASingleAttribute"></a>
 # **removeASingleAttribute**
@@ -118,11 +118,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Id of the entity. |
- **attrName** | **String**| Attribute name. |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Id of the entity. | |
+| **attrName** | **String**| Attribute name. | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
 
 ### Return type
 
@@ -140,7 +140,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 
 <a name="updateAttributeData"></a>
 # **updateAttributeData**
@@ -185,13 +185,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityId** | **String**| Id of the entity to update |
- **attrName** | **String**| Attribute name |
- **contentType** | **String**|  |
- **body** | [**UpdateAttributeDataRequest**](UpdateAttributeDataRequest.md)|  |
- **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | **String**| Id of the entity to update | |
+| **attrName** | **String**| Attribute name | |
+| **contentType** | **String**|  | |
+| **body** | [**UpdateAttributeDataRequest**](UpdateAttributeDataRequest.md)|  | |
+| **type** | **String**| Entity type, to avoid ambiguity in case there are several entities with the same entity id. | [optional] |
 
 ### Return type
 
@@ -209,5 +209,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 

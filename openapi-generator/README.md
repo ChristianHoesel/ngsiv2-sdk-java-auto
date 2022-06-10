@@ -2,7 +2,7 @@
 
 FIWARE-NGSI v2 Specification
 - API version: 1.0
-  - Build date: 2020-04-15T18:33:59.857039+03:00[Europe/Athens]
+  - Build date: 2022-06-11T00:44:07.423009+03:00[Europe/Athens]
 
 TODO: Add a description
 
@@ -13,8 +13,8 @@ TODO: Add a description
 ## Requirements
 
 Building the API client library requires:
-1. Java 1.7+
-2. Maven/Gradle
+1. Java 1.8+
+2. Maven (3.8.3+)/Gradle (7.2+)
 
 ## Installation
 
@@ -50,7 +50,14 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-java-client:1.0"
+  repositories {
+    mavenCentral()     // Needed if the 'openapi-java-client' jar has been published to maven central.
+    mavenLocal()       // Needed if the 'openapi-java-client' jar has been published to the local maven repo.
+  }
+
+  dependencies {
+     implementation "org.openapitools:openapi-java-client:1.0"
+  }
 ```
 
 ### Others

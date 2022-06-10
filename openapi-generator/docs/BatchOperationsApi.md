@@ -2,11 +2,11 @@
 
 All URIs are relative to *http://orion.lab.fiware.org*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**notify**](BatchOperationsApi.md#notify) | **POST** /v2/op/notify | Notify
-[**query**](BatchOperationsApi.md#query) | **POST** /v2/op/query | Query
-[**update**](BatchOperationsApi.md#update) | **POST** /v2/op/update | Update
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**notify**](BatchOperationsApi.md#notify) | **POST** /v2/op/notify | Notify |
+| [**query**](BatchOperationsApi.md#query) | **POST** /v2/op/query | Query |
+| [**update**](BatchOperationsApi.md#update) | **POST** /v2/op/update | Update |
 
 
 <a name="notify"></a>
@@ -34,7 +34,7 @@ public class Example {
     BatchOperationsApi apiInstance = new BatchOperationsApi(defaultClient);
     String contentType = "contentType_example"; // String | 
     NotifyRequest body = new NotifyRequest(); // NotifyRequest | 
-    String options = "options_example"; // String | Options dictionary
+    String options = "keyValues"; // String | Options dictionary
     try {
       apiInstance.notify(contentType, body, options);
     } catch (ApiException e) {
@@ -50,11 +50,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contentType** | **String**|  |
- **body** | [**NotifyRequest**](NotifyRequest.md)|  |
- **options** | **String**| Options dictionary | [optional] [enum: keyValues]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contentType** | **String**|  | |
+| **body** | [**NotifyRequest**](NotifyRequest.md)|  | |
+| **options** | **String**| Options dictionary | [optional] [enum: keyValues] |
 
 ### Return type
 
@@ -72,7 +72,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="query"></a>
 # **query**
@@ -102,7 +102,7 @@ public class Example {
     Double limit = 3.4D; // Double | Limit the number of entities to be retrieved.
     Double offset = 3.4D; // Double | Skip a number of records.
     String orderBy = "orderBy_example"; // String | Criteria for ordering results. See \"Ordering Results\" section for details.
-    String options = "options_example"; // String | Options dictionary
+    String options = "count"; // String | Options dictionary
     try {
       List<QueryResponse> result = apiInstance.query(contentType, body, limit, offset, orderBy, options);
       System.out.println(result);
@@ -119,14 +119,14 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contentType** | **String**|  |
- **body** | [**QueryRequest**](QueryRequest.md)|  |
- **limit** | **Double**| Limit the number of entities to be retrieved. | [optional]
- **offset** | **Double**| Skip a number of records. | [optional]
- **orderBy** | **String**| Criteria for ordering results. See \&quot;Ordering Results\&quot; section for details. | [optional]
- **options** | **String**| Options dictionary | [optional] [enum: count, keyValues, values, unique]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contentType** | **String**|  | |
+| **body** | [**QueryRequest**](QueryRequest.md)|  | |
+| **limit** | **Double**| Limit the number of entities to be retrieved. | [optional] |
+| **offset** | **Double**| Skip a number of records. | [optional] |
+| **orderBy** | **String**| Criteria for ordering results. See \&quot;Ordering Results\&quot; section for details. | [optional] |
+| **options** | **String**| Options dictionary | [optional] [enum: count, keyValues, values, unique] |
 
 ### Return type
 
@@ -144,7 +144,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="update"></a>
 # **update**
@@ -171,7 +171,7 @@ public class Example {
     BatchOperationsApi apiInstance = new BatchOperationsApi(defaultClient);
     String contentType = "contentType_example"; // String | 
     UpdateRequest body = new UpdateRequest(); // UpdateRequest | 
-    String options = "options_example"; // String | Options dictionary
+    String options = "keyValues"; // String | Options dictionary
     try {
       apiInstance.update(contentType, body, options);
     } catch (ApiException e) {
@@ -187,11 +187,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contentType** | **String**|  |
- **body** | [**UpdateRequest**](UpdateRequest.md)|  |
- **options** | **String**| Options dictionary | [optional] [enum: keyValues]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contentType** | **String**|  | |
+| **body** | [**UpdateRequest**](UpdateRequest.md)|  | |
+| **options** | **String**| Options dictionary | [optional] [enum: keyValues] |
 
 ### Return type
 
@@ -209,5 +209,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 

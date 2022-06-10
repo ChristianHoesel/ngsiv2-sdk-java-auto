@@ -18,8 +18,8 @@ import org.openapitools.client.model.CreateRegistrationRequest;
 import org.openapitools.client.model.ListRegistrationsResponse;
 import org.openapitools.client.model.RetrieveRegistrationResponse;
 import org.openapitools.client.model.UpdateRegistrationRequest;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,52 +29,46 @@ import java.util.Map;
 /**
  * API tests for RegistrationsApi
  */
-@Ignore
+@Disabled
 public class RegistrationsApiTest {
 
     private final RegistrationsApi api = new RegistrationsApi();
 
-    
     /**
      * Create Registration
      *
      * Creates a new context provider registration. This is typically used for binding context sources as providers of certain data. The registration is represented by a JSON object as described at the beginning of this section. Response: * Successful operation uses 201 Created * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createRegistrationTest() throws ApiException {
         String contentType = null;
         CreateRegistrationRequest body = null;
         api.createRegistration(contentType, body);
-
         // TODO: test validations
     }
-    
+
     /**
      * Delete Registration
      *
      * Cancels a context provider registration. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteRegistrationTest() throws ApiException {
         String registrationId = null;
         api.deleteRegistration(registrationId);
-
         // TODO: test validations
     }
-    
+
     /**
      * List Registrations
      *
      * Lists all the context provider registrations present in the system.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listRegistrationsTest() throws ApiException {
@@ -82,33 +76,29 @@ public class RegistrationsApiTest {
         Double offset = null;
         String options = null;
         List<ListRegistrationsResponse> response = api.listRegistrations(limit, offset, options);
-
         // TODO: test validations
     }
-    
+
     /**
      * Retrieve Registration
      *
      * The response is the registration represented by a JSON object as described at the beginning of this section. Response: * Successful operation uses 200 OK * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void retrieveRegistrationTest() throws ApiException {
         String registrationId = null;
         RetrieveRegistrationResponse response = api.retrieveRegistration(registrationId);
-
         // TODO: test validations
     }
-    
+
     /**
      * Update Registration
      *
      * Only the fields included in the request are updated in the registration. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateRegistrationTest() throws ApiException {
@@ -116,8 +106,7 @@ public class RegistrationsApiTest {
         String contentType = null;
         UpdateRegistrationRequest body = null;
         api.updateRegistration(registrationId, contentType, body);
-
         // TODO: test validations
     }
-    
+
 }

@@ -24,10 +24,30 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
+
 /**
  * ListRegistrationsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:33:59.857039+03:00[Europe/Athens]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:44:07.423009+03:00[Europe/Athens]")
 public class ListRegistrationsResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -57,6 +77,8 @@ public class ListRegistrationsResponse {
   @SerializedName(SERIALIZED_NAME_FORWARDING_INFORMATION)
   private Object forwardingInformation;
 
+  public ListRegistrationsResponse() { 
+  }
 
   public ListRegistrationsResponse id(String id) {
     
@@ -68,6 +90,7 @@ public class ListRegistrationsResponse {
    * 
    * @return id
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "abcdefg", required = true, value = "")
 
   public String getId() {
@@ -90,6 +113,7 @@ public class ListRegistrationsResponse {
    * 
    * @return description
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Example Context Source", required = true, value = "")
 
   public String getDescription() {
@@ -112,6 +136,7 @@ public class ListRegistrationsResponse {
    * 
    * @return dataProvided
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"entities\":[{\"id\":\"Bcn_Welt\",\"type\":\"Room\"}],\"attrs\":[\"temperature\"]}", required = true, value = "")
 
   public Object getDataProvided() {
@@ -134,6 +159,7 @@ public class ListRegistrationsResponse {
    * 
    * @return provider
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"http\":{\"url\":\"http://contextsource.example.org\"},\"supportedForwardingMode\":\"all\"}", required = true, value = "")
 
   public Object getProvider() {
@@ -156,6 +182,7 @@ public class ListRegistrationsResponse {
    * 
    * @return expires
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "10/31/2017 12:00:00 PM", required = true, value = "")
 
   public String getExpires() {
@@ -178,6 +205,7 @@ public class ListRegistrationsResponse {
    * 
    * @return status
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "active", required = true, value = "")
 
   public String getStatus() {
@@ -200,6 +228,7 @@ public class ListRegistrationsResponse {
    * 
    * @return forwardingInformation
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"timesSent\":12,\"lastForwarding\":\"2017-10-06T16:00:00Z\",\"lastSuccess\":\"2017-10-06T16:00:00Z\",\"lastFailure\":\"2017-10-05T16:00:00Z\"}", required = true, value = "")
 
   public Object getForwardingInformation() {
@@ -212,8 +241,9 @@ public class ListRegistrationsResponse {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -235,7 +265,6 @@ public class ListRegistrationsResponse {
     return Objects.hash(id, description, dataProvided, provider, expires, status, forwardingInformation);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -255,12 +284,129 @@ public class ListRegistrationsResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("description");
+    openapiFields.add("dataProvided");
+    openapiFields.add("provider");
+    openapiFields.add("expires");
+    openapiFields.add("status");
+    openapiFields.add("forwardingInformation");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("id");
+    openapiRequiredFields.add("description");
+    openapiRequiredFields.add("dataProvided");
+    openapiRequiredFields.add("provider");
+    openapiRequiredFields.add("expires");
+    openapiRequiredFields.add("status");
+    openapiRequiredFields.add("forwardingInformation");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ListRegistrationsResponse
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (ListRegistrationsResponse.openapiRequiredFields.isEmpty()) {
+          return;
+        } else { // has required fields
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListRegistrationsResponse is not found in the empty JSON string", ListRegistrationsResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ListRegistrationsResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListRegistrationsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ListRegistrationsResponse.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if (jsonObj.get("expires") != null && !jsonObj.get("expires").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expires` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires").toString()));
+      }
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ListRegistrationsResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListRegistrationsResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ListRegistrationsResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListRegistrationsResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ListRegistrationsResponse>() {
+           @Override
+           public void write(JsonWriter out, ListRegistrationsResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ListRegistrationsResponse read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ListRegistrationsResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ListRegistrationsResponse
+  * @throws IOException if the JSON string is invalid with respect to ListRegistrationsResponse
+  */
+  public static ListRegistrationsResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListRegistrationsResponse.class);
+  }
+
+ /**
+  * Convert an instance of ListRegistrationsResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

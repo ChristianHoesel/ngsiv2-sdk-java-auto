@@ -2,13 +2,13 @@
 
 All URIs are relative to *http://orion.lab.fiware.org*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createRegistration**](RegistrationsApi.md#createRegistration) | **POST** /v2/registrations | Create Registration
-[**deleteRegistration**](RegistrationsApi.md#deleteRegistration) | **DELETE** /v2/registrations/{registrationId} | Delete Registration
-[**listRegistrations**](RegistrationsApi.md#listRegistrations) | **GET** /v2/registrations | List Registrations
-[**retrieveRegistration**](RegistrationsApi.md#retrieveRegistration) | **GET** /v2/registrations/{registrationId} | Retrieve Registration
-[**updateRegistration**](RegistrationsApi.md#updateRegistration) | **PATCH** /v2/registrations/{registrationId} | Update Registration
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createRegistration**](RegistrationsApi.md#createRegistration) | **POST** /v2/registrations | Create Registration |
+| [**deleteRegistration**](RegistrationsApi.md#deleteRegistration) | **DELETE** /v2/registrations/{registrationId} | Delete Registration |
+| [**listRegistrations**](RegistrationsApi.md#listRegistrations) | **GET** /v2/registrations | List Registrations |
+| [**retrieveRegistration**](RegistrationsApi.md#retrieveRegistration) | **GET** /v2/registrations/{registrationId} | Retrieve Registration |
+| [**updateRegistration**](RegistrationsApi.md#updateRegistration) | **PATCH** /v2/registrations/{registrationId} | Update Registration |
 
 
 <a name="createRegistration"></a>
@@ -51,10 +51,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contentType** | **String**|  |
- **body** | [**CreateRegistrationRequest**](CreateRegistrationRequest.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contentType** | **String**|  | |
+| **body** | [**CreateRegistrationRequest**](CreateRegistrationRequest.md)|  | |
 
 ### Return type
 
@@ -72,7 +72,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** |  |  -  |
+| **201** |  |  -  |
 
 <a name="deleteRegistration"></a>
 # **deleteRegistration**
@@ -113,9 +113,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **registrationId** | **String**| registration Id. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **registrationId** | **String**| registration Id. | |
 
 ### Return type
 
@@ -133,7 +133,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 
 <a name="listRegistrations"></a>
 # **listRegistrations**
@@ -160,7 +160,7 @@ public class Example {
     RegistrationsApi apiInstance = new RegistrationsApi(defaultClient);
     Double limit = 3.4D; // Double | Limit the number of registrations to be retrieved
     Double offset = 3.4D; // Double | Skip a number of registrations
-    String options = "options_example"; // String | Options dictionary
+    String options = "count"; // String | Options dictionary
     try {
       List<ListRegistrationsResponse> result = apiInstance.listRegistrations(limit, offset, options);
       System.out.println(result);
@@ -177,11 +177,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Double**| Limit the number of registrations to be retrieved | [optional]
- **offset** | **Double**| Skip a number of registrations | [optional]
- **options** | **String**| Options dictionary | [optional] [enum: count]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Double**| Limit the number of registrations to be retrieved | [optional] |
+| **offset** | **Double**| Skip a number of registrations | [optional] |
+| **options** | **String**| Options dictionary | [optional] [enum: count] |
 
 ### Return type
 
@@ -199,7 +199,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="retrieveRegistration"></a>
 # **retrieveRegistration**
@@ -241,9 +241,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **registrationId** | **String**| registration Id. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **registrationId** | **String**| registration Id. | |
 
 ### Return type
 
@@ -261,7 +261,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
 <a name="updateRegistration"></a>
 # **updateRegistration**
@@ -304,11 +304,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **registrationId** | **String**| registration Id. |
- **contentType** | **String**|  |
- **body** | [**UpdateRegistrationRequest**](UpdateRegistrationRequest.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **registrationId** | **String**| registration Id. | |
+| **contentType** | **String**|  | |
+| **body** | [**UpdateRegistrationRequest**](UpdateRegistrationRequest.md)|  | |
 
 ### Return type
 
@@ -326,5 +326,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+| **204** |  |  -  |
 

@@ -16,8 +16,8 @@ package org.openapitools.client.api;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.GetAttributeDataResponse;
 import org.openapitools.client.model.UpdateAttributeDataRequest;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,19 +27,17 @@ import java.util.Map;
 /**
  * API tests for AttributesApi
  */
-@Ignore
+@Disabled
 public class AttributesApiTest {
 
     private final AttributesApi api = new AttributesApi();
 
-    
     /**
      * Get attribute data
      *
      * Returns a JSON object with the attribute data of the attribute. The object follows the JSON representation for attributes (described in \&quot;JSON Attribute Representation\&quot; section). Response: * Successful operation uses 200 OK. * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getAttributeDataTest() throws ApiException {
@@ -48,17 +46,15 @@ public class AttributesApiTest {
         String type = null;
         String metadata = null;
         GetAttributeDataResponse response = api.getAttributeData(entityId, attrName, type, metadata);
-
         // TODO: test validations
     }
-    
+
     /**
      * Remove a Single Attribute
      *
      * Removes an entity attribute. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void removeASingleAttributeTest() throws ApiException {
@@ -66,17 +62,15 @@ public class AttributesApiTest {
         String attrName = null;
         String type = null;
         api.removeASingleAttribute(entityId, attrName, type);
-
         // TODO: test validations
     }
-    
+
     /**
      * Update Attribute Data
      *
      * The request payload is an object representing the new attribute data. Previous attribute data is replaced by the one in the request. The object follows the JSON representation for attributes (described in \&quot;JSON Attribute Representation\&quot; section). Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateAttributeDataTest() throws ApiException {
@@ -86,8 +80,7 @@ public class AttributesApiTest {
         UpdateAttributeDataRequest body = null;
         String type = null;
         api.updateAttributeData(entityId, attrName, contentType, body, type);
-
         // TODO: test validations
     }
-    
+
 }

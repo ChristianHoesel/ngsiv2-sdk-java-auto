@@ -2,9 +2,9 @@
 
 All URIs are relative to *http://orion.lab.fiware.org*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**retrieveAPIResources**](ApiEntryPointApi.md#retrieveAPIResources) | **GET** /v2 | Retrieve API Resources
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**retrieveAPIResources**](ApiEntryPointApi.md#retrieveAPIResources) | **GET** /v2 | Retrieve API Resources |
 
 
 <a name="retrieveAPIResources"></a>
@@ -63,5 +63,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+| **200** |  |  -  |
 
