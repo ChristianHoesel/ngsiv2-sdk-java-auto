@@ -13,12 +13,12 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiException;
 import io.swagger.client.model.CreateSubscriptionRequest;
 import io.swagger.client.model.ListSubscriptionsResponse;
 import io.swagger.client.model.UpdateSubscriptionRequest;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +39,11 @@ public class SubscriptionsApiTest {
      *
      * Creates a new subscription. The subscription is represented by a JSON object as described at the beginning of this section. Response: * Successful operation uses 201 Created * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void createSubscriptionTest() throws ApiException {
+    public void createSubscriptionTest() throws Exception {
         String contentType = null;
         CreateSubscriptionRequest body = null;
         api.createSubscription(contentType, body);
@@ -56,11 +56,11 @@ public class SubscriptionsApiTest {
      *
      * Cancels subscription. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void deleteSubscriptionTest() throws ApiException {
+    public void deleteSubscriptionTest() throws Exception {
         String subscriptionId = null;
         api.deleteSubscription(subscriptionId);
 
@@ -72,11 +72,11 @@ public class SubscriptionsApiTest {
      *
      * Returns a list of all the subscriptions present in the system. Response: * Successful operation uses 200 OK * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void listSubscriptionsTest() throws ApiException {
+    public void listSubscriptionsTest() throws Exception {
         Double limit = null;
         Double offset = null;
         String options = null;
@@ -90,11 +90,11 @@ public class SubscriptionsApiTest {
      *
      * The response is the subscription represented by a JSON object as described at the beginning of this section. Response: * Successful operation uses 200 OK * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void retrieveSubscriptionTest() throws ApiException {
+    public void retrieveSubscriptionTest() throws Exception {
         String subscriptionId = null;
         Object response = api.retrieveSubscription(subscriptionId);
 
@@ -106,11 +106,11 @@ public class SubscriptionsApiTest {
      *
      * Only the fields included in the request are updated in the subscription. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void updateSubscriptionTest() throws ApiException {
+    public void updateSubscriptionTest() throws Exception {
         String subscriptionId = null;
         String contentType = null;
         UpdateSubscriptionRequest body = null;

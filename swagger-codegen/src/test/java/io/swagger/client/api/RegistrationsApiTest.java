@@ -13,13 +13,13 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiException;
 import io.swagger.client.model.CreateRegistrationRequest;
 import io.swagger.client.model.ListRegistrationsResponse;
 import io.swagger.client.model.RetrieveRegistrationResponse;
 import io.swagger.client.model.UpdateRegistrationRequest;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,11 +40,11 @@ public class RegistrationsApiTest {
      *
      * Creates a new context provider registration. This is typically used for binding context sources as providers of certain data. The registration is represented by a JSON object as described at the beginning of this section. Response: * Successful operation uses 201 Created * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void createRegistrationTest() throws ApiException {
+    public void createRegistrationTest() throws Exception {
         String contentType = null;
         CreateRegistrationRequest body = null;
         api.createRegistration(contentType, body);
@@ -57,11 +57,11 @@ public class RegistrationsApiTest {
      *
      * Cancels a context provider registration. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void deleteRegistrationTest() throws ApiException {
+    public void deleteRegistrationTest() throws Exception {
         String registrationId = null;
         api.deleteRegistration(registrationId);
 
@@ -73,11 +73,11 @@ public class RegistrationsApiTest {
      *
      * Lists all the context provider registrations present in the system.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void listRegistrationsTest() throws ApiException {
+    public void listRegistrationsTest() throws Exception {
         Double limit = null;
         Double offset = null;
         String options = null;
@@ -91,11 +91,11 @@ public class RegistrationsApiTest {
      *
      * The response is the registration represented by a JSON object as described at the beginning of this section. Response: * Successful operation uses 200 OK * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void retrieveRegistrationTest() throws ApiException {
+    public void retrieveRegistrationTest() throws Exception {
         String registrationId = null;
         RetrieveRegistrationResponse response = api.retrieveRegistration(registrationId);
 
@@ -107,11 +107,11 @@ public class RegistrationsApiTest {
      *
      * Only the fields included in the request are updated in the registration. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void updateRegistrationTest() throws ApiException {
+    public void updateRegistrationTest() throws Exception {
         String registrationId = null;
         String contentType = null;
         UpdateRegistrationRequest body = null;

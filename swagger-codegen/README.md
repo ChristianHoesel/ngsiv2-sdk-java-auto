@@ -2,7 +2,7 @@
 
 FIWARE-NGSI v2 Specification
 - API version: 1.0
-  - Build date: 2020-04-15T18:29:04.271+03:00
+  - Build date: 2022-06-11T00:41:48.154+03:00
 
 TODO: Add a description
 

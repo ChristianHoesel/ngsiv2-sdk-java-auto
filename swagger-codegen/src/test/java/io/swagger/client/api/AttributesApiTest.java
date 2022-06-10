@@ -13,11 +13,11 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiException;
 import io.swagger.client.model.GetAttributeDataResponse;
 import io.swagger.client.model.UpdateAttributeDataRequest;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class AttributesApiTest {
      *
      * Returns a JSON object with the attribute data of the attribute. The object follows the JSON representation for attributes (described in \&quot;JSON Attribute Representation\&quot; section). Response: * Successful operation uses 200 OK. * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void getAttributeDataTest() throws ApiException {
+    public void getAttributeDataTest() throws Exception {
         String entityId = null;
         String attrName = null;
         String type = null;
@@ -57,11 +57,11 @@ public class AttributesApiTest {
      *
      * Removes an entity attribute. Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void removeASingleAttributeTest() throws ApiException {
+    public void removeASingleAttributeTest() throws Exception {
         String entityId = null;
         String attrName = null;
         String type = null;
@@ -75,11 +75,11 @@ public class AttributesApiTest {
      *
      * The request payload is an object representing the new attribute data. Previous attribute data is replaced by the one in the request. The object follows the JSON representation for attributes (described in \&quot;JSON Attribute Representation\&quot; section). Response: * Successful operation uses 204 No Content * Errors use a non-2xx and (optionally) an error payload. See subsection on \&quot;Error Responses\&quot; for   more details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void updateAttributeDataTest() throws ApiException {
+    public void updateAttributeDataTest() throws Exception {
         String entityId = null;
         String attrName = null;
         String contentType = null;

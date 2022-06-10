@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RetrieveApiResourcesResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:29:04.271+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:41:48.154+03:00")
 public class RetrieveApiResourcesResponse {
   @SerializedName("entities_url")
   private String entitiesUrl = null;

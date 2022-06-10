@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **String** |  | 
+**description** | **String** |  |  [optional]
 **subject** | **Object** |  | 
 **notification** | **Object** |  | 
-**expires** | **String** |  | 
-**throttling** | **Integer** |  | 
+**expires** | **String** |  |  [optional]
+**throttling** | **Integer** |  |  [optional]
 
 
 

@@ -13,10 +13,10 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiException;
 import io.swagger.client.model.RetrieveApiResourcesResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,11 +37,11 @@ public class ApiEntryPointApiTest {
      *
      * This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body. It is recommended to follow the “url” link values, [Link](https://tools.ietf.org/html/rfc5988) or Location headers where applicable to retrieve resources. Instead of constructing your own URLs, to keep your client decoupled from implementation details.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void retrieveAPIResourcesTest() throws ApiException {
+    public void retrieveAPIResourcesTest() throws Exception {
         RetrieveApiResourcesResponse response = api.retrieveAPIResources();
 
         // TODO: test validations

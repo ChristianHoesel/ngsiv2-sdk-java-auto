@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateSubscriptionRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-15T18:29:04.271+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-11T00:41:48.154+03:00")
 public class CreateSubscriptionRequest {
   @SerializedName("description")
   private String description = null;
@@ -53,7 +53,7 @@ public class CreateSubscriptionRequest {
    * 
    * @return description
   **/
-  @ApiModelProperty(example = "One subscription to rule them all", required = true, value = "")
+  @ApiModelProperty(example = "One subscription to rule them all", value = "")
   public String getDescription() {
     return description;
   }
@@ -107,7 +107,7 @@ public class CreateSubscriptionRequest {
    * 
    * @return expires
   **/
-  @ApiModelProperty(example = "4/5/2016 2:00:00 PM", required = true, value = "")
+  @ApiModelProperty(example = "4/5/2016 2:00:00 PM", value = "")
   public String getExpires() {
     return expires;
   }
@@ -125,7 +125,7 @@ public class CreateSubscriptionRequest {
    * 
    * @return throttling
   **/
-  @ApiModelProperty(example = "5", required = true, value = "")
+  @ApiModelProperty(example = "5", value = "")
   public Integer getThrottling() {
     return throttling;
   }
