@@ -1,0 +1,21 @@
+
+# Crs
+
+## Structure
+
+`Crs`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `Value` | `String` | Required | - | String getValue() | setValue(String value) |
+
+## Example (as JSON)
+
+```json
+{
+  "value": "WGS84"
+}
+```
+
