@@ -1,4 +1,4 @@
-# Auto-generated Java Client SDKs for NGSI v2
+# Auto-generated NGSI v2 SDKs for Java
 
 ## [swagger-codegen](https://github.com/swagger-api/swagger-codegen)
 * [NGSI v2 OpenAPI 2.0 Specification](https://github.com/FIWARE/specifications/blob/master/OpenAPI/ngsiv2/ngsiv2-openapi.json) (06cab79)
@@ -48,7 +48,7 @@
 
 ## [apimatic-codegen](https://www.apimatic.io/)
 * [NGSI v2 API Blueprint](https://github.com/telefonicaid/fiware-orion/blob/master/doc/apiary/v2/fiware-ngsiv2-2.0-2018_09_15.apib) (2018_09_15)
-* [APIMatic CodeGen](https://www.apimatic.io/)
+* [APIMatic CodeGen](https://www.apimatic.io/continuous-code-generation/)
 
 ## Disclaimer
 The SDKs have been automatically generated and may not work as intended out-of-the-box!<br>
